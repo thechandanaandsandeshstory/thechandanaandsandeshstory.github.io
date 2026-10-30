@@ -1,0 +1,26 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Sandesh and Chandana//Wedding//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Sandesh and Chandana Wedding
+BEGIN:VEVENT
+UID:wedding-20261213@sandesh-chandana.local
+DTSTAMP:20261030T000000Z
+DTSTART:20261213T034300Z
+SUMMARY:Sandesh and Chandana - Wedding
+LOCATION:Sri Raghaveshwara Sabhabhavana\, Bachchalli Road\, Agrahara\, Saga
+ ra
+DESCRIPTION:Wedding muhurta 9:13 AM IST. Wedding lunch from 12:30 PM IST. C
+ onfirm exact venue with family.
+END:VEVENT
+BEGIN:VEVENT
+UID:reception-20261214@sandesh-chandana.local
+DTSTAMP:20261030T000000Z
+DTSTART:20261214T073000Z
+SUMMARY:Sandesh and Chandana - Reception and Lunch
+LOCATION:Banglakoppa\, Mavinagundi\, Siddapur Taluk\, Karnataka
+DESCRIPTION:Reception and lunch at 1:00 PM IST. Confirm exact arrival point
+  with family.
+END:VEVENT
+END:VCALENDAR
