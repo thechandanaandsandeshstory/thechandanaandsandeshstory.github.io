@@ -2,6 +2,8 @@
 
 A bilingual English/Kannada wedding invitation, designed from the family's printed invitation. Static HTML, CSS and JavaScript; no build step and no production dependencies.
 
+The repository is private. Publication is currently blocked by the account's GitHub Actions billing/spending-limit restriction. See DEPLOYMENT.md for verified status and retry instructions.
+
 ## Preview
 
 Serve the public directory with any static server. For example:
