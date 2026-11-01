@@ -33,6 +33,9 @@ button[data-open]{display:none}
 .hero-shade{background:linear-gradient(#210a104d,transparent 25%,#210a1020 70%,#210a1066)}
 .hero-halo{position:absolute;z-index:-1;inset:16% 25% 19%;background:radial-gradient(ellipse,#c9923e14,transparent 68%);pointer-events:none}
 #petals{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+.gold-mote{position:absolute;width:2px;height:2px;border-radius:50%;background:var(--gold-light);opacity:.35;animation:gold-drift 14s linear infinite;contain:strict}
+.atmosphere-paused .gold-mote{animation-play-state:paused}
+@keyframes gold-drift{from{transform:translateY(35px);opacity:0}15%,80%{opacity:.4}to{transform:translateY(-45px);opacity:0}}
 .hero-content{width:min(100%,960px);max-width:960px}
 .ganapathi{width:154px;height:154px;object-fit:contain;margin:0 auto 12px;filter:drop-shadow(0 8px 18px #0005)}
 .blessing{font-size:15px;color:var(--gold-light);margin-bottom:13px}
@@ -83,7 +86,7 @@ button[data-open]{display:none}
 .floating-home-pin{position:fixed;bottom:24px;right:24px;z-index:25;display:flex;align-items:center;gap:8px;padding:12px 18px;border:1px solid var(--gold);background:var(--wine);color:var(--gold-light);font-size:12px;text-decoration:none;border-radius:28px;box-shadow:0 6px 20px #210a102e;transition:opacity .25s,transform .25s}
 body:not(.past-hero) .floating-home-pin,body.dialog-open .floating-home-pin{opacity:0;visibility:hidden;transform:translateY(12px)}
 .dialog{background:var(--paper);color:var(--ink);border:1px solid #bc9450;border-radius:12px;max-width:620px;width:calc(100% - 32px);max-height:calc(100svh - 48px);padding:42px;overflow:auto;box-shadow:0 25px 80px #0005}
-.dialog::backdrop{background:#210a10dc;backdrop-filter:blur(7px)}
+.dialog::backdrop{background:#210a10eb}
 .dialog:not(.invitation-dialog){padding:0;overflow:hidden}
 .dialog-scroll{padding:42px;overflow:auto;max-height:calc(100svh - 52px);overscroll-behavior:contain}
 .dialog[open]{animation:dialog-arrive .35s var(--ease)}
@@ -148,11 +151,11 @@ body:not(.past-hero) .floating-home-pin,body.dialog-open .floating-home-pin{opac
 .js .hero h1{animation:names-arrive 1.8s .15s var(--ease) both}
 .js .hero-date,.js .open-invitation{animation:invitation-arrive 1.7s .3s var(--ease) both}
 .invitation-entered .hero-halo{animation:blessing-light 1.2s var(--ease)}
-@keyframes mandap-arrive{from{transform:scale(1.055);filter:brightness(.45)}to{transform:scale(1);filter:brightness(1)}}
-@keyframes ganapathi-arrive{from{opacity:.25;filter:brightness(1.6) blur(4px)}to{opacity:1;filter:brightness(1) blur(0)}}
-@keyframes names-arrive{from{opacity:.3;filter:blur(8px);transform:translateY(15px)}to{opacity:1;filter:blur(0);transform:none}}
+@keyframes mandap-arrive{from{opacity:.55}to{opacity:1}}
+@keyframes ganapathi-arrive{from{opacity:.25;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes names-arrive{from{opacity:.3;transform:translateY(15px)}to{opacity:1;transform:none}}
 @keyframes invitation-arrive{from{opacity:.2;transform:translateY(8px)}to{opacity:1;transform:none}}
-@keyframes blessing-light{50%{opacity:1;filter:brightness(2)}}
+@keyframes blessing-light{50%{opacity:1}}
 @keyframes dialog-arrive{from{opacity:.5;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
 @keyframes petal-fall{0%{opacity:0;transform:translate3d(0,0,0) rotate(0)}8%{opacity:.9}90%{opacity:.85}100%{opacity:0;transform:translate3d(var(--drift),105svh,0) rotate(var(--spin))}}
 .motion-paused{scroll-behavior:auto!important}

@@ -73,7 +73,7 @@ Paper is the reading and dialog surface; sand distinguishes closing and supporti
 
 ## Typography
 
-Cormorant Garamond supplies English names, headings and large date numerals; Manrope supplies reading and controls; Noto Serif Kannada supplies Kannada. All three remain self-hosted with font swapping. The frontmatter records default roles from the final cascade. Paragraphs reach (65ch), with explanatory copy using line height (1.95); event copy is (14px desktop / 13px phone).
+Cormorant Garamond supplies English names, headings and large date numerals; Manrope supplies reading and controls; Noto Serif Kannada supplies Kannada. All three remain self-hosted with Unicode-ranged WOFF2 files and font swapping. The frontmatter records default roles from the final cascade. Paragraphs reach (65ch), with explanatory copy using line height (1.95); event copy is (14px desktop / 13px phone).
 
 **The Two-Script Rule.** Kannada uses its own family, zero display tracking and longer line heights. Preserve its language-specific metrics rather than shrinking it into English measurements.
 
@@ -93,9 +93,9 @@ Dialogs fit within the viewport: ordinary maximum width (620px), viewer maximum 
 
 ## Elevation & Depth
 
-Layered mandap imagery, a subtle halo and gold motes give the cover depth. The date plaque has an inset border and soft shadow; the invitation preview retains its paper lift; the fixed header and home shortcut receive restrained shadows. Dialogs use a larger shadow against a dark blurred backdrop. Exact shadow and motion treatments are in the sidecar.
+Layered mandap imagery, a subtle halo and gold motes give the cover depth. The date plaque has an inset border and soft shadow; the invitation preview retains its paper lift; the fixed header and home shortcut receive restrained shadows. Dialogs use a larger shadow against a dark dimmed backdrop. Full-screen backdrop blur is avoided for smooth rendering.
 
-**The Controlled Atmosphere Rule.** Decoration follows the visitor's control: canvas motes stop offscreen, in hidden tabs, while dialogs are open, when motion is paused and under reduced motion. Sound starts only after an explicit sound-control action.
+**The Controlled Atmosphere Rule.** Twelve small CSS motes replace a continuous full-screen canvas. They pause offscreen, in hidden tabs and while dialogs are open; motion controls and reduced-motion preferences are respected. Entrance motion uses opacity and transforms, with no animated blur or brightness filters. Petal showers are capped at 18 on phones and 32 on larger screens. Sound starts only after an explicit sound-control action.
 
 The entrance coordinates artwork (2.3s), Ganapathi (1.4s), names (1.8s) and date/action (1.7s). Dialogs arrive over (.35s). Entry and blessing actions can trigger finite petal showers (3.3s fall); reduced motion suppresses them. The temple chime is synthesized and opt-in, with an immediate stop control; it never autoplays.
 

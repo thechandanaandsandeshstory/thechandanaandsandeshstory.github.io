@@ -38,3 +38,5 @@ The divine mandap and Ganapathi artwork were generated for this website with the
 ## Checks
 
 Run node scripts/calendar.test.cjs to verify calendar links and iCalendar output. The browser check in scripts/check.cjs requires Playwright (available in the Codex bundled runtime) and a Chromium-compatible browser; BROWSER_PATH can override its default Brave executable. It checks five viewport widths, both languages, dialog controls, zoom, exact home coordinates, reduced motion, countdown edge cases and static fallbacks.
+
+scripts/profile.cjs provides a repeatable desktop/phone workload under 4× CPU throttling. Set PERF_LABEL to name each saved report in tmp/performance. See PERFORMANCE.md for the measured optimization results.

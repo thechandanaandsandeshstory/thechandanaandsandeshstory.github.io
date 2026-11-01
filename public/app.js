@@ -1,7 +1,13 @@
 'use strict';
 document.documentElement.classList.add('js');
 const translations = [...document.querySelectorAll('[data-kn]')];
-translations.forEach(function (element) { element.dataset.en = element.innerText; });
+// Preserve explicit line breaks without innerText forcing a page layout at startup.
+function invitationText(node) {
+  if (node.nodeName === 'BR') return '\n';
+  if (node.nodeType === Node.TEXT_NODE) return node.textContent;
+  return Array.from(node.childNodes, invitationText).join('');
+}
+translations.forEach(function (element) { element.dataset.en = invitationText(element); });
 const languageButtons = [...document.querySelectorAll('[data-language]')];
 let language = 'en';
 let motionPaused = false;
@@ -10,6 +16,7 @@ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const motionButton = document.querySelector('.motion-control');
 const weddingTime = Date.parse('2026-12-13T09:13:00+05:30');
 let lastCountdownState = '';
+const countdownDigits = Object.fromEntries(['days', 'hours', 'minutes', 'seconds'].map(unit => [unit, document.getElementById(unit)]));
 
 function remember(key, value) {
   try { localStorage.setItem(key, value); } catch (_) { /* Storage can be unavailable in private browsing. */ }
@@ -29,7 +36,9 @@ function updateMotionButton() {
 function setLanguage(nextLanguage) {
   language = nextLanguage === 'kn' ? 'kn' : 'en';
   document.documentElement.lang = language;
-  translations.forEach(function (element) { element.textContent = element.dataset[language]; });
+  translations.forEach(function (element) {
+    if (element.textContent !== element.dataset[language]) element.textContent = element.dataset[language];
+  });
   languageButtons.forEach(function (button) {
     button.setAttribute('aria-pressed', String(button.dataset.language === language));
   });
@@ -70,7 +79,8 @@ function updateCountdown() {
     seconds: seconds % 60
   };
   Object.keys(values).forEach(function (unit) {
-    document.getElementById(unit).textContent = String(values[unit]).padStart(2, '0');
+    const text = String(values[unit]).padStart(2, '0');
+    if (countdownDigits[unit].textContent !== text) countdownDigits[unit].textContent = text;
   });
   const state = remaining === 0 ? 'celebrating' : 'waiting';
   const stateKey = language + '-' + state;

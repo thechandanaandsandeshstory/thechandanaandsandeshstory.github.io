@@ -16,7 +16,10 @@ const homePin = 'https://maps.app.goo.gl/sDHHJNV3LDDcjhfZ9';
 function say(en, kn) { return document.documentElement.lang === 'kn' ? kn : en; }
 function updatePage() {
   const image = document.getElementById('viewer-page');
-  image.src = 'assets/invitation-page-' + invitationPage + '.webp';
+  if (document.getElementById('invitation-dialog').open) {
+    const source = 'assets/invitation-page-' + invitationPage + '.webp';
+    if (image.getAttribute('src') !== source) image.src = source;
+  }
   image.alt = say('Kannada invitation, page ' + invitationPage + ' of 3', 'ಕನ್ನಡ ಆಹ್ವಾನ ಪತ್ರಿಕೆ, ಪುಟ ' + invitationPage + ' / 3');
   document.getElementById('page-indicator').textContent = invitationPage + ' / 3';
   document.getElementById('previous-page').disabled = invitationPage === 1;
@@ -81,6 +84,9 @@ dialogs.forEach(function (dialog) {
   dialog.addEventListener('close', function () {
     document.body.classList.remove('dialog-open');
     shower.replaceChildren();
+    clearTimeout(showerTimeout);
+    // A hidden Google Maps iframe keeps its own scripts running.
+    if (dialog.id === 'travel-dialog') document.querySelector('#home-map iframe')?.remove();
     document.body.append(shower);
     document.querySelector('.invitation-viewer').classList.remove('zoomed');
     document.getElementById('zoom-page').setAttribute('aria-pressed', 'false');
@@ -155,7 +161,9 @@ function showerPetals(count) {
   if (blessing.open) blessing.append(shower);
   else document.body.append(shower);
   const colors = ['#dfb96e', '#f5cf77', '#b64b3d', '#f3e1b6', '#d59239'];
-  for (let i = 0; i < count; i += 1) {
+  const fragment = document.createDocumentFragment();
+  const limit = Math.min(count, matchMedia('(max-width: 700px)').matches ? 18 : 32);
+  for (let i = 0; i < limit; i += 1) {
     const petal = document.createElement('span');
     petal.className = 'falling-petal';
     petal.style.setProperty('--x', Math.random() * 100 + '%');
@@ -164,8 +172,9 @@ function showerPetals(count) {
     petal.style.setProperty('--spin', 90 + Math.random() * 540 + 'deg');
     petal.style.setProperty('--delay', Math.random() * .8 + 's');
     petal.style.setProperty('--petal', colors[i % colors.length]);
-    shower.append(petal);
+    fragment.append(petal);
   }
+  shower.append(fragment);
   showerTimeout = setTimeout(function () { shower.replaceChildren(); }, 4300);
 }
 document.getElementById('shower-blessings').addEventListener('click', function () {
@@ -212,60 +221,44 @@ window.updateAppLabels = function () {
 };
 window.updateAppLabels();
 
-// Atmosphere is confined to the cover, pauses offscreen/in dialogs, and never runs in reduced motion.
-const atmosphereCanvas = document.getElementById('petals');
-const atmosphereContext = atmosphereCanvas.getContext('2d');
-let atmosphereFrame = 0;
+// Tiny CSS layers replace a full-viewport canvas redraw on every display frame.
+const atmosphere = document.getElementById('petals');
 let heroVisible = true;
-let canvasWidth = 0;
-let canvasHeight = 0;
-let previousFrameTime = 0;
-const motes = Array.from({ length: 27 }, function () {
-  return { x: Math.random(), y: Math.random(), size: .5 + Math.random(), speed: .0008 + Math.random() * .0013 };
-});
-function sizeAtmosphere() {
-  const box = atmosphereCanvas.getBoundingClientRect();
-  canvasWidth = box.width; canvasHeight = box.height;
-  const scale = Math.min(window.devicePixelRatio || 1, 1.5);
-  atmosphereCanvas.width = Math.round(box.width * scale);
-  atmosphereCanvas.height = Math.round(box.height * scale);
-  if (atmosphereContext) atmosphereContext.setTransform(scale, 0, 0, scale, 0, 0);
+const motes = document.createDocumentFragment();
+for (let i = 0; i < 12; i += 1) {
+  const mote = document.createElement('span');
+  mote.className = 'gold-mote';
+  mote.style.left = (8 + (i * 37) % 84) + '%';
+  mote.style.top = (12 + (i * 29) % 80) + '%';
+  mote.style.animationDelay = -(i * 1.7) + 's';
+  motes.append(mote);
 }
-function renderAtmosphere(time) {
-  if (!atmosphereContext) return;
-  const delta = Math.min((time - previousFrameTime) / 16.67 || 1, 3);
-  previousFrameTime = time;
-  atmosphereContext.clearRect(0, 0, canvasWidth, canvasHeight);
-  motes.forEach(function (mote) {
-    mote.y -= mote.speed * delta;
-    if (mote.y < 0) { mote.y = 1; mote.x = Math.random(); }
-    atmosphereContext.beginPath();
-    atmosphereContext.fillStyle = 'rgba(244,217,158,.4)';
-    atmosphereContext.arc(mote.x * canvasWidth, mote.y * canvasHeight, mote.size, 0, Math.PI * 2);
-    atmosphereContext.fill();
-  });
-  atmosphereFrame = requestAnimationFrame(renderAtmosphere);
-}
+atmosphere.append(motes);
 window.syncAtmosphere = function () {
-  cancelAnimationFrame(atmosphereFrame);
-  atmosphereFrame = 0;
-  if (!atmosphereContext) return;
   const shouldRun = heroVisible && !document.hidden && !document.querySelector('dialog[open]') &&
     !document.documentElement.classList.contains('motion-paused') && !matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (shouldRun) atmosphereFrame = requestAnimationFrame(renderAtmosphere);
-  else atmosphereContext.clearRect(0, 0, canvasWidth, canvasHeight);
+  atmosphere.classList.toggle('atmosphere-paused', !shouldRun);
 };
-sizeAtmosphere();
 if ('IntersectionObserver' in window) {
   new IntersectionObserver(function (entries) {
     heroVisible = entries[0].isIntersecting; window.syncAtmosphere();
   }).observe(document.getElementById('home'));
 }
-window.addEventListener('resize', function () { sizeAtmosphere(); window.syncAtmosphere(); }, { passive: true });
 document.addEventListener('visibilitychange', window.syncAtmosphere);
+const header = document.querySelector('.site-header');
+let headerScrolled;
+let pastHero;
 function updateScrollState() {
-  document.querySelector('.site-header').classList.toggle('is-scrolled', scrollY > 50);
-  document.body.classList.toggle('past-hero', scrollY > 350);
+  const nextHeader = scrollY > 50;
+  const nextHero = scrollY > 350;
+  if (nextHeader !== headerScrolled) {
+    header.classList.toggle('is-scrolled', nextHeader);
+    headerScrolled = nextHeader;
+  }
+  if (nextHero !== pastHero) {
+    document.body.classList.toggle('past-hero', nextHero);
+    pastHero = nextHero;
+  }
 }
 window.addEventListener('scroll', updateScrollState, { passive: true });
 updateScrollState();

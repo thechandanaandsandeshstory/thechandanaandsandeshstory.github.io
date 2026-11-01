@@ -214,7 +214,7 @@
       {
         "name": "ganapathi-arrive",
         "value": "1.4s",
-        "purpose": "Ganapathi brightness and focus reveal."
+        "purpose": "Ganapathi opacity and transform reveal; no animated filters."
       },
       {
         "name": "names-arrive",
@@ -333,7 +333,7 @@
       },
       {
         "name": "The Controlled Atmosphere Rule",
-        "body": "Decoration follows the visitor's control: canvas motes stop offscreen, in hidden tabs, while dialogs are open, when motion is paused and under reduced motion. Sound starts only after an explicit sound-control action.",
+        "body": "Twelve tiny CSS motes replace a continuous full-screen canvas. They pause offscreen, in hidden tabs and while dialogs are open; motion controls and reduced-motion preferences are respected. Sound starts only after an explicit sound-control action.",
         "section": "elevation & depth"
       }
     ],
