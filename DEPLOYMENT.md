@@ -4,11 +4,11 @@ Updated 1 November 2026 (Asia/Kolkata).
 
 ## GitHub Pages target
 
-The current target is the private repository https://github.com/thechandanaandsandeshstory/thechandanaandsandeshstory.github.io. The original repository Saakihegde12345/sandesh-chandana-wedding is retained.
+The current target is the public repository https://github.com/thechandanaandsandeshstory/thechandanaandsandeshstory.github.io. The original repository Saakihegde12345/sandesh-chandana-wedding remains private.
 
-The GitHub Pages workflow publishes the public directory on pushes to main, or by manual dispatch. Configure Settings → Pages → Build and deployment → Source: GitHub Actions. The intended public URL is https://thechandanaandsandeshstory.github.io/ after a successful deployment. No custom domain is configured in this project.
+The GitHub Pages workflow publishes the public directory on pushes to main, or by manual dispatch. Settings → Pages → Build and deployment → Source is configured as GitHub Actions. The website URL is https://thechandanaandsandeshstory.github.io/ after a successful deployment. HTTPS is enforced and no custom domain is configured in this project.
 
-The target organization currently uses GitHub Free. GitHub requires public repositories for Pages on this plan; keeping this organization repository private requires GitHub Team or Enterprise. No repository visibility or billing changes have been made.
+The target organization uses GitHub Free. GitHub initially rejected Pages activation while this repository was private. The user explicitly approved public visibility on 1 November 2026; the repository was made public and Pages activation succeeded. No billing changes were made.
 
 Official availability: https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site
 
