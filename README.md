@@ -2,7 +2,7 @@
 
 A bilingual English/Kannada wedding invitation, designed from the family's printed invitation. Static HTML, CSS and JavaScript; no build step and no production dependencies.
 
-The repository is private. The current hosting target is Cloudflare Pages, which builds directly from this repository and does not require the failed GitHub Actions deployment. See DEPLOYMENT.md for exact Pages settings.
+The repository is private. The current GitHub Pages target is thechandanaandsandeshstory/thechandanaandsandeshstory.github.io. The existing Cloudflare deployment option is also documented in DEPLOYMENT.md.
 
 ## Preview
 
@@ -10,11 +10,15 @@ Serve the public directory with any static server. For example:
 
     npx --yes serve public
 
-## Cloudflare Pages
+## GitHub Pages
+
+The included workflow publishes the public directory on pushes to main and can also be run manually. Select GitHub Actions as the publishing source in Settings → Pages. The expected address is https://thechandanaandsandeshstory.github.io/ once GitHub permits and completes deployment.
+
+This organization currently uses GitHub Free. GitHub Pages requires a public repository on this plan; retaining private source requires GitHub Team or Enterprise. Repository visibility has not been changed.
+
+## Cloudflare Pages alternative
 
 Create a Pages project (not a Workers application), connect this repository, and choose: production branch main; framework None; build command exit 0; output directory public; repository root unchanged. Preview builds may stay enabled. Keep Access protection off for a public guest invitation.
-
-The previous GitHub Pages workflow is retained as an optional manual fallback and no longer runs on each push.
 
 ## Updating the invitation
 

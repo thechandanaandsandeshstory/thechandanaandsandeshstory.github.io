@@ -1,6 +1,20 @@
-# Cloudflare Pages deployment
+# Website deployment
 
-Updated 1 November 2026 (Asia/Kolkata). The source repository remains private: Saakihegde12345/sandesh-chandana-wedding.
+Updated 1 November 2026 (Asia/Kolkata).
+
+## GitHub Pages target
+
+The current target is the private repository https://github.com/thechandanaandsandeshstory/thechandanaandsandeshstory.github.io. The original repository Saakihegde12345/sandesh-chandana-wedding is retained.
+
+The GitHub Pages workflow publishes the public directory on pushes to main, or by manual dispatch. Configure Settings → Pages → Build and deployment → Source: GitHub Actions. The intended public URL is https://thechandanaandsandeshstory.github.io/ after a successful deployment. No custom domain is configured in this project.
+
+The target organization currently uses GitHub Free. GitHub requires public repositories for Pages on this plan; keeping this organization repository private requires GitHub Team or Enterprise. No repository visibility or billing changes have been made.
+
+Official availability: https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site
+
+## Cloudflare Pages alternative
+
+Cloudflare can continue to use the original private repository with the following settings.
 
 ## The supplied screenshots
 
@@ -43,4 +57,4 @@ The family-supplied Banglekoppa pin is https://maps.app.goo.gl/sDHHJNV3LDDcjhfZ9
 
 GitHub Actions run 41098219425 was refused due an account payment/spending-limit restriction. The main Pages site's awesomeprojects.me domain also redirected project sites and failed HTTPS verification. These issues do not need to be changed to use the new Cloudflare pages.dev site. No billing or main-domain settings were changed.
 
-The optional GitHub Pages workflow is now manual only; it will not run on every new push.
+The original repository retains its manual workflow. The new target's workflow runs automatically on pushes to main.
