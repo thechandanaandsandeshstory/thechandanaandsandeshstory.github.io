@@ -14,7 +14,7 @@ A wedding invitation for the couple's family and friends. Visitors should quickl
 - Groom: Sandesh S. Hegde / ಸಂದೇಶ ಎಸ್. ಹೆಗಡೆ.
 - Bride: Chandana C. Bhat / ಚಂದನಾ ಸಿ. ಭಟ್. The user corrected the surname to Bhat, ಭಟ್.
 - Wedding: Sunday 13 December 2026, 09:13 IST, Dhanur Lagna.
-- Wedding venue, as transcribed: ಶ್ರೀ ರಾಘವೇಶ್ವರ ಸಭಾಭವನ, ಬಚ್ಚಳ್ಳಿ ರಸ್ತೆ, ಅಗ್ರಹಾರ, ಸಾಗರ.
+- Wedding venue: Sri Raghaveshwara Sabhabhavana, Agrahara 3rd Cross, Shimoga Road, Sagar, Karnataka. Address explicitly corrected by the user. Kannada: ಶ್ರೀ ರಾಘವೇಶ್ವರ ಸಭಾಭವನ, ಅಗ್ರಹಾರ 3ನೇ ಅಡ್ಡರಸ್ತೆ, ಶಿವಮೊಗ್ಗ ರಸ್ತೆ, ಸಾಗರ, ಕರ್ನಾಟಕ.
 - Wedding lunch: 13 December, from 12:30 PM.
 - Bridal welcome: 13 December, 6:08 PM, groom's home, ಬಂಗ್ಲೆಕೊಪ್ಪ.
 - Yaksha–Gaana Vaibhava: Monday 14 December, from 11 AM.

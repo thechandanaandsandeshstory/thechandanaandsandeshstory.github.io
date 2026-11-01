@@ -6,9 +6,9 @@
       id: 'wedding-20261213@sandesh-chandana.local',
       title: 'Sandesh & Chandana - Wedding',
       start: '2026-12-13T09:13:00+05:30',
-      location: 'Sri Raghaveshwara Sabhabhavana, Bachchalli Road, Agrahara, Sagara, Karnataka',
+      location: 'Sri Raghaveshwara Sabhabhavana, Agrahara 3rd Cross, Shimoga Road, Sagar, Karnataka',
       description: 'Wedding muhurta: 9:13 AM IST, 13 December 2026. Wedding lunch from 12:30 PM IST.',
-      map: 'https://www.google.com/maps/search/?api=1&query=Sri+Raghaveshwara+Sabhabhavana+Agrahara+Sagara+Karnataka'
+      map: 'https://www.google.com/maps/search/?api=1&query=Sri+Raghaveshwara+Sabhabhavana+Agrahara+3rd+Cross+Shimoga+Road+Sagar+Karnataka'
     },
     reception: {
       id: 'reception-20261214@sandesh-chandana.local',
