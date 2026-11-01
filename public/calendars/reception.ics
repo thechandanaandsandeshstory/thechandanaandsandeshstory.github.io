@@ -1,0 +1,29 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Sandesh and Chandana//Wedding//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Sandesh and Chandana Wedding
+X-WR-TIMEZONE:Asia/Kolkata
+BEGIN:VEVENT
+UID:reception-20261214@sandesh-chandana.local
+DTSTAMP:20261101T000000Z
+SEQUENCE:1
+DTSTART:20261214T073000Z
+DTEND:20261214T083000Z
+SUMMARY:Sandesh & Chandana - Reception and Lunch
+LOCATION:Banglekoppa\, Mavinagundi\, Siddapur Taluk\, Karnataka
+DESCRIPTION:Reception and lunch: 1:00 PM IST\, 14 December 2026. Home pin: 
+ 14.236759\, 74.809287.\nA 1-hour calendar hold is provided for your remind
+ er. The actual event finish time has not been announced\; adjust the calen
+ dar duration as needed.
+URL:https://maps.app.goo.gl/sDHHJNV3LDDcjhfZ9
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Sandesh & Chandana - Reception and Lunch is tomorrow
+END:VALARM
+END:VEVENT
+END:VCALENDAR

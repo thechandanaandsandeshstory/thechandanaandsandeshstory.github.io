@@ -1,14 +1,32 @@
 # Artwork provenance
 
-## Botanical invitation
-Generated for this project with the built-in image generation tool, 30 October 2026.
-Shipping files: public/assets/botanical-invitation.webp and botanical-invitation.jpg.
-Prompt:
+## Divine wedding redesign — 1 November 2026
+All newly generated art uses the built-in image generation tool. These scenes are atmospheric artwork, not photographs of the actual venue. Optimized WebP assets preserve their original composition and Ganapathi transparency.
 
-Create a finished luxury wedding invitation background artwork, landscape 3:2 aspect ratio, image only with absolutely no text, no letters, no typography, no people. Deep inky cobalt blue #182e64 matte silk-paper background. Extremely fine luminous silver-ivory engraved botanical branches: elegant South Indian areca palm fronds, delicate jasmine vines and a few small jasmine flowers, arranged as an exquisite asymmetrical framing around all four outer edges. Elaborate leaves at lower left and upper right, sparse fine branches at upper left and lower right. The CENTER 65 percent of image must be perfectly empty uninterrupted blue negative space, suitable for placing large wedding names and date over it. The fine botanical engraving should look like a master artisan's silver foil etching on a Kannada wedding invitation, intricate, graceful, premium, restrained, beautifully detailed. Flat front view, no photograph of a card, no card edges, no mockup, no props, no arch shape, no frame rectangle. Faint silk weave texture, tonal blue-on-blue foliage behind the fine silver leaves. Palette strictly navy, cobalt and silver ivory. No gold, no purple, no pink, no watermark. Crisp museum quality printmaking.
+## Lamp-lit mandap
+Shipping: public/assets/divine-mandap.webp and divine-mandap.jpg
 
-## Original invitation preview
-public/assets/invitation-preview.webp is a resized rendering of page 2 of the user-supplied Invitation.pdf. The original PDF is preserved without modification.
+Exact prompt:
+
+Use case: stylized-concept. Asset: full bleed cinematic website background for a divine Karnataka Hindu wedding invitation. Create a luxurious warmly lit South Indian mandap interior, perfectly symmetrical frontal composition. Massive rich dark burgundy vermilion silk drapes framing a carved antique brass-gold temple arch, very fine intricate traditional floral filigree. Hanging elegant brass oil lamps near outer top corners, a few delicate marigold and jasmine garlands concentrated at very outer edges. Atmospheric candlelight and subtle real incense haze. CENTER 65 PERCENT MUST REMAIN EMPTY UNINTERRUPTED DEEP MAROON #300e17 NEGATIVE SPACE. The arch's empty niche extends nearly all height. No idol, no people, no text, no lettering, no bride or groom. Lower central half is extremely dark quiet burgundy silk, suitable for overlaying large typography. Rich detailed luminous antique gold carvings at sides, not a flat background. Strong chiaroscuro, cinematic sacred intimate wedding atmosphere, physically convincing textured silk and aged brass, sophisticated warm palette of deep wine, vermilion, amber, sandalwood and gold. Landscape 3:2 framing. No blue, purple, white modern wall, watermark, neon or geometric doodles.
+
+
+## Ganapathi idol
+Shipping: public/assets/ganapathi.webp
+
+Exact prompt:
+
+Use case: stylized-concept. Asset: transparent cutout Ganapathi idol for the opening of a divine Hindu wedding invitation website. A magnificent complete small seated Lord Ganesha traditional Karnataka bronze-gold idol, straight-on frontal view, peaceful welcoming expression, traditional elephant head and graceful trunk curving left of image, large ears, four arms with upper hands holding traditional goad and noose, lower blessing palm and bowl of modaks, detailed crown and jewelry. Beautifully proportioned, anatomically coherent four arms, no extra limbs or fingers. Seated on an intricately carved small lotus pedestal, graceful short flower garland, sacred dignified craftsmanship. Beautiful rich antique gold polished bronze illuminated softly by warm oil lamp light from sides, delicate realistic highlights, deep sculptural relief and beautiful detailing, crisp exquisite devotional artifact photography rendered faithfully. Entire idol and pedestal within frame with generous transparent margin, no background at all, isolated transparent alpha. No text, no lettering, no frame, no watermark, no additional large objects. Square composition.
+
+
+## Portrait mandap
+public/assets/divine-mandap-mobile.webp is a separately generated phone composition. Its exact prompt and source are in the adjacent .json metadata file.
+
+## Original invitation
+The preview and invitation-page-1.webp through invitation-page-3.webp are resized renders of the user-supplied Invitation.pdf. The original PDF remains unmodified.
 
 ## Fonts
-Cormorant Garamond, Manrope, and Noto Serif Kannada downloaded from Google Fonts. Self-hosted for reliable rendering. Original OFL licenses are included in public/assets/fonts.
+Cormorant Garamond, Manrope and Noto Serif Kannada are self-hosted from Google Fonts, with original OFL licenses in public/assets/fonts.
+
+## Previous design
+The retired blue botanical illustration remains in Git history and is no longer shipped.

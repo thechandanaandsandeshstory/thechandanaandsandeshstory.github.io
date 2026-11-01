@@ -13,13 +13,15 @@ const path = require('node:path');
   const page = await context.newPage();
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
-  page.on('response', response => { if (response.status() >= 400) errors.push(response.status() + ': ' + response.url()); });
+  page.on('response', response => { if (response.url().startsWith(base) && response.status() >= 400) errors.push(response.status() + ': ' + response.url()); });
   await page.goto(base);
   await page.evaluate(() => document.fonts.ready);
   await page.locator('.hero-content').waitFor();
   await page.waitForTimeout(2200);
   assert.equal(await page.title(), 'Sandesh & Chandana | 13 December 2026');
   assert.match(await page.locator('.couple-details').innerText(), /Chandana C\. Bhat/);
+  assert.match(await page.locator('.couple-details').innerText(), /Shridhar C\. Hegde/);
+  assert.ok(await page.locator('.ganapathi').evaluate(img => img.complete && img.naturalWidth > 0));
   assert.equal(await page.locator('time[datetime="2026-12-14T13:00:00+05:30"]').innerText(), '1:00 PM');
   await page.screenshot({ path: path.join(output, 'desktop.png'), fullPage: true });
   await page.screenshot({ path: path.join(output, 'hero-desktop.png') });
@@ -56,6 +58,61 @@ const path = require('node:path');
     assert.equal(await page.locator('html').getAttribute('lang'), lang);
   }
   assert.match(await page.locator('.couple-details').innerText(), /ಚಂದನಾ ಸಿ. ಭಟ್/);
+  await page.locator('[data-language="en"]').click();
+  await page.locator('.calendar-trigger').click();
+  assert.equal(await page.locator('#calendar-dialog').evaluate(el => el.open), true);
+  await page.locator('[data-event="reception"]').click();
+  const google = new URL(await page.locator('#google-calendar').getAttribute('href'));
+  assert.equal(google.searchParams.get('dates'), '20261214T073000Z/20261214T083000Z');
+  assert.equal(await page.locator('#apple-calendar').getAttribute('href'), 'calendars/reception.ics');
+  await page.screenshot({ path: path.join(output, 'calendar-desktop.png') });
+  await page.keyboard.press('Escape');
+  assert.equal(await page.locator('.calendar-trigger').evaluate(el => el === document.activeElement), true);
+  await page.locator('.invitation-copy [data-open="invitation-dialog"]').click();
+  await page.locator('#next-page').click();
+  await page.locator('#next-page').click();
+  assert.equal(await page.locator('#page-indicator').innerText(), '3 / 3');
+  assert.equal(await page.locator('#next-page').isDisabled(), true);
+  await page.locator('#zoom-page').click();
+  assert.equal(await page.locator('#zoom-page').getAttribute('aria-pressed'), 'true');
+  await page.locator('#viewer-page').evaluate(img => img.decode());
+  await page.screenshot({ path: path.join(output, 'invitation-zoom-desktop.png') });
+  await page.keyboard.press('Escape');
+  await page.locator('.closing-actions [data-open="blessing-dialog"]').click();
+  await page.locator('#shower-blessings').click();
+  assert.match(await page.locator('#blessing-status').innerText(), /Thank you/);
+  await page.screenshot({ path: path.join(output, 'blessing-desktop.png') });
+  await page.keyboard.press('Escape');
+  await page.locator('[data-open="travel-dialog"]').click();
+  assert.match(await page.locator('#home-map iframe').getAttribute('src'), /14\.236759,74\.809287/);
+  assert.match(await page.locator('#travel-dialog a.button').getAttribute('href'), /destination=14\.236759,74\.809287/);
+  await page.keyboard.press('Escape');
+  // All modal layouts must fit the smallest phone and both language modes.
+  await page.setViewportSize({ width: 320, height: 720 });
+  for (const lang of ['en', 'kn']) {
+    await page.evaluate(() => scrollTo({top: 0, behavior: 'instant'}));
+    await page.locator('[data-language="' + lang + '"]').click();
+    for (const id of ['calendar-dialog', 'invitation-dialog', 'blessing-dialog', 'travel-dialog']) {
+      await page.locator('[data-open="' + id + '"]').first().click();
+      await page.waitForTimeout(400);
+      assert.ok(await page.locator('#' + id).evaluate(el => el.scrollWidth <= el.clientWidth + 1), id + ' overflows at 320px in ' + lang);
+      const scrollArea = page.locator('#' + id + ' .dialog-scroll');
+      if (await scrollArea.count()) {
+        assert.equal(await scrollArea.evaluate(el => el.scrollTop), 0, id + ' must open at the top');
+        await scrollArea.evaluate(el => { el.scrollTop = el.scrollHeight; });
+        const closeInView = await page.locator('#' + id + ' > [data-close]').evaluate(el => {
+          const rect = el.getBoundingClientRect();
+          return rect.top >= 0 && rect.bottom <= innerHeight;
+        });
+        assert.ok(closeInView, id + ' close control must remain visible after scrolling');
+        await scrollArea.evaluate(el => { el.scrollTop = 0; });
+      }
+      if (id === 'invitation-dialog') await page.locator('#viewer-page').evaluate(img => img.decode());
+      await page.screenshot({ path: path.join(output, lang + '-' + id + '-mobile.png') });
+      await page.keyboard.press('Escape');
+    }
+  }
+  await page.evaluate(() => scrollTo({top: 0, behavior: 'instant'}));
   await page.locator('[data-language="en"]').click();
   await page.emulateMedia({ reducedMotion: 'reduce' });
   assert.equal(await page.locator('.hero-content').evaluate(el => getComputedStyle(el).animationName), 'none');
@@ -95,6 +152,6 @@ const path = require('node:path');
   assert.ok(await fallback.locator('a[href="Invitation.pdf"]').count());
   assert.equal(await fallback.locator('.language-switch').isVisible(), false);
   assert.deepEqual(errors, []);
-  console.log('PASS: English/Kannada at 5 widths; language and motion persistence; reduced motion; event times; timezone countdown and expired date; PDF/calendar; no-JavaScript invitation; no browser or asset errors.');
+  console.log('PASS: English/Kannada at 5 widths; all 4 dialogs at 320px in both languages; calendar choices; 3-page viewer and zoom; blessing interaction; exact home pin; focus restoration; language/motion persistence; reduced motion; countdown across timezones/expiry; PDF/calendar; no-JS fallback; no local browser/asset errors.');
   await browser.close();
 })().catch(error => { console.error(error); process.exitCode = 1; });

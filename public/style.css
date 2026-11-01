@@ -42,14 +42,14 @@ svg.icon { width: 21px; height: 21px; flex: 0 0 21px; stroke: currentColor; stro
 .button { display: inline-flex; justify-content: center; align-items: center; gap: 16px; padding: 15px 24px; min-height: 54px; font: 500 12px/1.6 var(--body); text-decoration: none; border: 1px solid transparent; border-radius: 2px; transition: background .25s ease, color .25s ease, border-color .25s ease; }
 .button-light { background: var(--silver); color: var(--midnight); }
 .button-light:hover { background: #fff; }
-.button-blue { background: var(--blue); color: var(--pearl); }
-.button-blue:hover { background: var(--midnight); }
+.button-primary { background: var(--blue); color: var(--pearl); }
+.button-primary:hover { background: var(--midnight); }
 .button-light-outline { color: var(--silver); border-color: #dce4ef80; }
 .button-light-outline:hover { background: var(--silver); color: var(--midnight); border-color: var(--silver); }
 .button-outline { border-color: var(--blue); color: var(--blue); background: transparent; }
 .button-outline:hover { background: var(--blue); color: var(--pearl); }
 .hero { position: relative; overflow: clip; color: var(--silver); background: var(--midnight); min-height: 850px; height: 100svh; max-height: 1080px; padding: 158px 24px 115px; display: grid; place-items: center; isolation: isolate; }
-.hero-art { position: absolute; inset: 0; z-index: -3; background: var(--midnight) url("assets/botanical-invitation.webp") center / cover no-repeat; }
+.hero-art { position: absolute; inset: 0; z-index: -3; background: var(--midnight) url("assets/divine-mandap.webp") center / cover no-repeat; }
 .hero-shade { position: absolute; inset: 0; z-index: -2; background: radial-gradient(ellipse at 50% 44%, #11264c45 0%, #11264c20 40%, #11264c0a 75%), linear-gradient(#11264c5c, transparent 25%, transparent 80%, #11264c66); }
 .hero-arch { position: absolute; inset: 134px max(30px, calc((100% - 760px) / 2)) 58px; border: 1px solid #dce4ef66; border-radius: 50% 50% 0 0 / 36% 36% 0 0; z-index: -1; }
 .hero-arch::after { content: ""; position: absolute; inset: 9px; border: 1px solid #dce4ef26; border-radius: inherit; }
@@ -114,7 +114,7 @@ svg.icon { width: 21px; height: 21px; flex: 0 0 21px; stroke: currentColor; stro
 .calendar-action { display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 15px; margin-top: 45px; }
 .calendar-action p { font-size: 10px; color: var(--muted); }
 .venues-section { padding-block: 100px 70px; background: var(--midnight); color: var(--silver); position: relative; overflow: clip; }
-.venues-section::before { content: ""; position: absolute; inset: 0; background: url("assets/botanical-invitation.webp") center/cover; opacity: .12; pointer-events: none; }
+.venues-section::before { content: ""; position: absolute; inset: 0; background: url("assets/divine-mandap.webp") center/cover; opacity: .12; pointer-events: none; }
 .venues-section > div { position: relative; }
 .venues-intro { display: flex; gap: 70px; align-items: flex-end; justify-content: space-between; }
 .venues-intro h2 { max-width: 550px; }

@@ -1,33 +1,46 @@
-# Deployment status
+# Cloudflare Pages deployment
 
-30 October 2026 (Asia/Kolkata).
+Updated 1 November 2026 (Asia/Kolkata). The source repository remains private: Saakihegde12345/sandesh-chandana-wedding.
 
-## Completed
-- Built and browser-tested the complete static wedding website in public/.
-- Independent visual review: ship against the code-led direction.
-- Created Saakihegde12345/sandesh-chandana-wedding as a **private** repository.
-- Pushed the source to main.
-- Enabled public GitHub Pages with GitHub Actions; GitHub accepted the configuration for this private repository.
+## The supplied screenshots
 
-## Publication blocked
-Run 41098219425 was refused before any job steps started. GitHub's annotation:
+The screenshots show a **Workers** application: the form asks for a deploy command and suggests npx wrangler deploy / preview. This repository is a static Pages site. Use the Pages setup instead of deploying that Workers form.
 
-> The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings
+Cloudflare dashboard → Workers & Pages → Create application → Pages → Import an existing Git repository / Connect to Git → select sandesh-chandana-wedding.
 
-Resolve the account billing/spending-limit issue in https://github.com/settings/billing and retry the existing deployment:
+## Exact settings
 
-    gh run rerun 41098219425 --repo Saakihegde12345/sandesh-chandana-wedding
+| Setting | Value |
+|---|---|
+| Project name | sandesh-chandana-wedding-invitation (or another available name) |
+| Production branch | main |
+| Framework preset | None |
+| Build command | exit 0 |
+| Build output directory | public |
+| Root directory | Leave unchanged / repository root |
+| Environment variables | None needed |
+| Preview builds | Enabled is fine |
+| Cloudflare Access | Off for a public guest invitation |
 
-The website is not live yet. The repository remains private.
+Pages does not need a Wrangler deploy/preview command in this setup.
 
-## Existing account-wide domain
-The account's main Pages site, Saakihegde12345.github.io, has the custom domain awesomeprojects.me. GitHub automatically redirects the wedding project URL to http://awesomeprojects.me/sandesh-chandana-wedding/.
+After Save and Deploy, use the actual pages.dev URL Cloudflare returns. The GitHub repository can remain private; Cloudflare Pages supports private repositories. Git integration publishes new pushes directly through Cloudflare.
 
-At verification, awesomeprojects.me resolved to 75.2.60.5 / 99.83.190.102, while GitHub Pages resolved to 185.199.108–111.153. HTTP redirected to HTTPS and the HTTPS connection failed. The existing custom domain configuration was left unchanged, because changing the main site's domain can affect other projects.
+Official setup: https://developers.cloudflare.com/pages/framework-guides/deploy-anything/
+Private GitHub source: https://developers.cloudflare.com/pages/get-started/git-integration/
 
-Before sharing with guests, resolve the domain routing and HTTPS, or explicitly authorize changing the main Pages site's custom-domain configuration. Do not claim a public wedding URL works until it has been fetched and browser-checked.
+## Current verification boundary
 
-## Family verification before sharing
-- Replace venue/area searches with confirmed map pins.
-- Confirm English transliterations of parents' names and venue/address wording.
-- The original downloadable PDF includes the family information printed on the invitation.
+The site has passed local browser checks at 320, 390, 768, 1024 and 1440px in English and Kannada. Four dialogs were checked at 320px, including scroll reset, close visibility after scrolling, focus restoration, gallery paging/zoom, and exact home coordinates. Calendar links and RFC iCalendar files were validated; actual Apple/Outlook native import screens are not available in this environment.
+
+No Cloudflare deployment URL or connected Cloudflare API session has been supplied. Do not claim the revised site is publicly live until the returned URL is fetched and checked.
+
+## Home and venue
+
+The family-supplied Banglekoppa pin is https://maps.app.goo.gl/sDHHJNV3LDDcjhfZ9, coordinates 14.236759, 74.809287. Website home directions and reception calendar use it. The wedding hall link remains a venue search until its exact entrance pin is supplied.
+
+## Prior GitHub Pages attempt
+
+GitHub Actions run 41098219425 was refused due an account payment/spending-limit restriction. The main Pages site's awesomeprojects.me domain also redirected project sites and failed HTTPS verification. These issues do not need to be changed to use the new Cloudflare pages.dev site. No billing or main-domain settings were changed.
+
+The optional GitHub Pages workflow is now manual only; it will not run on every new push.

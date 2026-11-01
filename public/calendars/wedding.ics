@@ -1,0 +1,31 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Sandesh and Chandana//Wedding//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Sandesh and Chandana Wedding
+X-WR-TIMEZONE:Asia/Kolkata
+BEGIN:VEVENT
+UID:wedding-20261213@sandesh-chandana.local
+DTSTAMP:20261101T000000Z
+SEQUENCE:1
+DTSTART:20261213T034300Z
+DTEND:20261213T044300Z
+SUMMARY:Sandesh & Chandana - Wedding
+LOCATION:Sri Raghaveshwara Sabhabhavana\, Bachchalli Road\, Agrahara\, Saga
+ ra\, Karnataka
+DESCRIPTION:Wedding muhurta: 9:13 AM IST\, 13 December 2026. Wedding lunch 
+ from 12:30 PM IST.\nA 1-hour calendar hold is provided for your reminder. 
+ The actual event finish time has not been announced\; adjust the calendar 
+ duration as needed.
+URL:https://www.google.com/maps/search/?api=1&query=Sri+Raghaveshwara+Sabha
+ bhavana+Agrahara+Sagara+Karnataka
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Sandesh & Chandana - Wedding is tomorrow
+END:VALARM
+END:VEVENT
+END:VCALENDAR

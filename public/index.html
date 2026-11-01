@@ -3,18 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#11264c">
+  <meta name="theme-color" content="#300e17">
   <title>Sandesh & Chandana | 13 December 2026</title>
   <meta name="description" content="With our families, we invite you to the wedding of Sandesh S. Hegde and Chandana C. Bhat. 13 December 2026, Sagara, Karnataka.">
   <meta property="og:title" content="Sandesh & Chandana — You're invited">
   <meta property="og:description" content="13 December 2026 · Sagara, Karnataka. Join us for a beautiful beginning.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/botanical-invitation.jpg">
+  <meta property="og:image" content="assets/divine-mandap.jpg">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="stylesheet" href="assets/fonts.css">
   <link rel="stylesheet" href="style.css">
-  <link rel="preload" as="image" href="assets/botanical-invitation.webp" fetchpriority="high">
+  <link rel="stylesheet" href="divine.css">
+  <link rel="preload" as="image" href="assets/divine-mandap.webp" media="(min-width: 701px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/divine-mandap-mobile.webp" media="(max-width: 700px)" fetchpriority="high">
+  <script src="calendar.js" defer></script>
   <script src="app.js" defer></script>
+  <script src="interactions.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#celebration">Skip to wedding details</a>
@@ -26,6 +30,9 @@
     <symbol id="pin" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
     <symbol id="share" viewBox="0 0 24 24"><path d="M12 16V3M7 8l5-5 5 5M5 12v9h14v-9"/></symbol>
     <symbol id="pause" viewBox="0 0 24 24"><path d="M9 5v14M15 5v14"/></symbol>
+    <symbol id="close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="flower" viewBox="0 0 24 24"><path d="M12 12c-8-12-13 3 0 0Zm0 0c12-8-3-13 0 0Zm0 0c8 12 13-3 0 0Zm0 0c-12 8 3 13 0 0Z"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="bell" viewBox="0 0 24 24"><path d="M6 17h12l-2-4V9a4 4 0 0 0-8 0v4Zm4 3h4M12 3v2"/></symbol>
     <symbol id="play" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7Z"/></symbol>
   </svg>
 
@@ -47,28 +54,30 @@
     <section class="hero" id="home" aria-labelledby="couple-names">
       <div class="hero-art" aria-hidden="true"></div>
       <div class="hero-shade" aria-hidden="true"></div>
-      <div class="hero-arch" aria-hidden="true"></div>
+      <div class="hero-halo" aria-hidden="true"></div>
+      <canvas id="petals" aria-hidden="true"></canvas>
       <div class="hero-content">
-        <p class="blessing" lang="kn">॥ ಶ್ರೀ ಕುಲದೇವತಾ ಪ್ರಸನ್ನ ॥</p>
-        <p class="hero-intro" data-kn="ನಮ್ಮ ವಿವಾಹಕ್ಕೆ ಆತ್ಮೀಯ ಸ್ವಾಗತ">Together with our families</p>
+        <img class="ganapathi" src="assets/ganapathi.webp" width="650" height="650" alt="Lord Ganapathi, an antique-gold idol with a flower garland" fetchpriority="high">
+        <p class="blessing" lang="kn">॥ ಶ್ರೀ ಗಣೇಶಾಯ ನಮಃ ॥</p>
         <h1 id="couple-names">
           <span class="name name-first" data-kn="ಸಂದೇಶ">Sandesh</span>
           <span class="ampersand">&</span>
           <span class="name name-second" data-kn="ಚಂದನಾ">Chandana</span>
         </h1>
-        <p class="hero-message" data-kn="ನಿಮ್ಮ ಉಪಸ್ಥಿತಿ, ನಮ್ಮ ಸಂಭ್ರಮ">A beautiful beginning. A celebration with you.</p>
+        <p class="hero-message" data-kn="ನಿಮ್ಮ ಉಪಸ್ಥಿತಿ, ನಮ್ಮ ಸಂಭ್ರಮ">A sacred beginning. A lifetime together.</p>
         <div class="hero-date">
           <span data-kn="ಭಾನುವಾರ">Sunday</span>
           <time datetime="2026-12-13">13.12.2026</time>
           <span data-kn="ಸಾಗರ, ಕರ್ನಾಟಕ">Sagara, Karnataka</span>
         </div>
         <a class="button button-light open-invitation" href="#welcome">
-          <span data-kn="ಆಹ್ವಾನವನ್ನು ತೆರೆಯಿರಿ">Open the invitation</span>
+          <span data-kn="ನಮ್ಮ ಸಂಭ್ರಮದಲ್ಲಿ ಭಾಗಿಯಾಗಿ">Enter our celebration</span>
           <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg>
         </a>
+        <button class="blessing-trigger quiet-button" type="button" data-open="blessing-dialog"><svg class="icon" aria-hidden="true"><use href="#flower"/></svg><span data-kn="ಶುಭ ಹಾರೈಸಿ">Shower your blessings</span></button>
       </div>
       <div class="hero-foot">
-        <span data-kn="ಪ್ರೀತಿ, ಕುಟುಂಬ ಮತ್ತು ಸಂಪ್ರದಾಯಗಳ ಸಂಭ್ರಮ">A celebration of love, family & tradition</span>
+        <button class="sound-control" type="button" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#bell"/></svg><span data-kn="ಘಂಟಾನಾದ ಕೇಳಿ">Play a temple chime</span></button>
         <button class="motion-control" type="button" aria-pressed="false" aria-label="Pause decorative animation">
           <svg class="icon" aria-hidden="true"><use href="#pause"/></svg><span data-kn="ಚಲನೆ ನಿಲ್ಲಿಸಿ">Pause motion</span>
         </button>
@@ -77,6 +86,7 @@
 
     <section class="welcome section-wrap" id="welcome" aria-labelledby="welcome-heading">
       <div class="invitation-date" aria-label="13 December 2026">
+        <span class="date-kannada" lang="kn">ಶುಭವಿವಾಹ</span>
         <span data-kn="ಡಿಸೆಂಬರ್">December</span>
         <strong>13</strong>
         <span class="date-year">2026</span>
@@ -84,13 +94,13 @@
         <span data-kn="ಸಾಗರ, ಕರ್ನಾಟಕ">Sagara, Karnataka</span>
       </div>
       <div class="welcome-copy">
-        <h2 id="welcome-heading" data-kn="ನಮ್ಮ ಸಂತೋಷದಲ್ಲಿ&#10;ನೀವೂ ಭಾಗಿಯಾಗಿ.">Some moments are<br>meant to be shared.</h2>
+        <h2 id="welcome-heading" data-kn="ನಮ್ಮ ಸಂತೋಷದಲ್ಲಿ&#10;ನೀವೂ ಭಾಗಿಯಾಗಿ.">Written in the stars.<br>Blessed by our families.</h2>
         <p class="welcome-kannada" lang="kn">ನಿಮ್ಮ ಆಗಮನವೇ ನಮ್ಮ ಸಂಭ್ರಮ.</p>
         <p data-kn="ಜೀವನದ ಈ ಸುಂದರ ಹೊಸ ಅಧ್ಯಾಯವನ್ನು ಆರಂಭಿಸುತ್ತಿರುವ ಸಂದರ್ಭದಲ್ಲಿ, ನಿಮ್ಮ ಪ್ರೀತಿ ಮತ್ತು ಆಶೀರ್ವಾದವನ್ನು ಬಯಸುತ್ತೇವೆ. ನಮ್ಮ ಕುಟುಂಬದೊಂದಿಗೆ ಈ ಶುಭ ಸಮಾರಂಭದಲ್ಲಿ ಭಾಗಿಯಾಗಿ.">As we begin a new chapter together, we would love to have you by our side. Join our families as we celebrate our wedding, honour our traditions, and make memories to carry into a lifetime.</p>
         <div class="couple-details">
           <div>
             <h3 data-kn="ಸಂದೇಶ ಎಸ್. ಹೆಗಡೆ">Sandesh S. Hegde</h3>
-            <p data-kn="ಶ್ರೀಮತಿ ಕವಿತಾ ಮತ್ತು&#10;ಶ್ರೀ ಶ್ರೀಧರ ಸಿ. ಹೆಗಡೆ ಇವರ ಪುತ್ರ">Son of Kavitha &<br>Sridhar C. Hegde</p>
+            <p data-kn="ಶ್ರೀಮತಿ ಕವಿತಾ ಮತ್ತು&#10;ಶ್ರೀ ಶ್ರೀಧರ ಸಿ. ಹೆಗಡೆ ಇವರ ಪುತ್ರ">Son of Kavitha &<br>Shridhar C. Hegde</p>
           </div>
           <span class="couple-join" aria-hidden="true">&</span>
           <div>
@@ -119,7 +129,7 @@
 
     <section class="celebration section-wrap" id="celebration" aria-labelledby="celebration-heading">
       <div class="section-heading">
-        <h2 id="celebration-heading" data-kn="ಸಂಭ್ರಮದ ಕ್ಷಣಗಳು">The days to remember.</h2>
+        <h2 id="celebration-heading" data-kn="ಸಂಭ್ರಮದ ಕ್ಷಣಗಳು">Rituals, joy & a little magic.</h2>
         <p data-kn="ಎರಡು ದಿನಗಳು. ಆತ್ಮೀಯರ ಸಮಾಗಮ. ಮಧುರ ನೆನಪುಗಳು.">Two days. Our favourite people. A lifetime of memories.</p>
       </div>
       <div class="day">
@@ -144,7 +154,7 @@
           </article>
           <article class="event">
             <time datetime="2026-12-13T18:08:00+05:30">6:08 <span>PM</span></time>
-            <div class="event-copy"><h4 data-kn="ವಧೂ ಪ್ರವೇಶ">Welcoming the bride</h4><p data-kn="ವರನ ಸ್ವಗೃಹ, ಬಂಗ್ಲೆಕೊಪ್ಪ">At the groom's home, Banglakoppa</p></div>
+            <div class="event-copy"><h4 data-kn="ವಧೂ ಪ್ರವೇಶ">Welcoming the bride</h4><p data-kn="ವರನ ಸ್ವಗೃಹ, ಬಂಗ್ಲೆಕೊಪ್ಪ">At the groom's home, Banglekoppa</p></div>
           </article>
         </div>
       </div>
@@ -156,15 +166,15 @@
         <div class="events">
           <article class="event">
             <time datetime="2026-12-14T11:00:00+05:30">11:00 <span>AM</span></time>
-            <div class="event-copy"><h4 data-kn="‘ಯಕ್ಷ’–‘ಗಾನ’ ವೈಭವ">Yaksha–Gaana Vaibhava</h4><p data-kn="ಬಂಗ್ಲೆಕೊಪ್ಪದಲ್ಲಿ ಸಾಂಸ್ಕೃತಿಕ ಸಂಭ್ರಮ">A morning of music, art, and celebration in Banglakoppa</p></div>
+            <div class="event-copy"><h4 data-kn="‘ಯಕ್ಷ’–‘ಗಾನ’ ವೈಭವ">Yaksha–Gaana Vaibhava</h4><p data-kn="ಬಂಗ್ಲೆಕೊಪ್ಪದಲ್ಲಿ ಸಾಂಸ್ಕೃತಿಕ ಸಂಭ್ರಮ">A morning of music, art, and celebration in Banglekoppa</p></div>
           </article>
           <article class="event featured-event">
             <time datetime="2026-12-14T13:00:00+05:30">1:00 <span>PM</span></time>
-            <div class="event-copy"><h4 data-kn="ಆರತಕ್ಷತೆ ಮತ್ತು ಸತ್ಕಾರ">Reception & lunch</h4><p data-kn="ನಿಮ್ಮ ಪ್ರೀತಿ ಮತ್ತು ಆಶೀರ್ವಾದದೊಂದಿಗೆ">An afternoon with the people we love</p><p class="event-venue" data-kn="ಬಂಗ್ಲೆಕೊಪ್ಪ, ಮಾವಿನಗುಂಡಿ, ಸಿದ್ದಾಪುರ ತಾ॥">Banglakoppa, Mavinagundi, Siddapur Taluk</p><a class="text-link" href="#reception-venue"><span data-kn="ಸ್ಥಳ ಮಾಹಿತಿ">Location details</span><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a></div>
+            <div class="event-copy"><h4 data-kn="ಆರತಕ್ಷತೆ ಮತ್ತು ಸತ್ಕಾರ">Reception & lunch</h4><p data-kn="ನಿಮ್ಮ ಪ್ರೀತಿ ಮತ್ತು ಆಶೀರ್ವಾದದೊಂದಿಗೆ">An afternoon with the people we love</p><p class="event-venue" data-kn="ಬಂಗ್ಲೆಕೊಪ್ಪ, ಮಾವಿನಗುಂಡಿ, ಸಿದ್ದಾಪುರ ತಾ॥">Banglekoppa, Mavinagundi, Siddapur Taluk</p><a class="text-link" href="#reception-venue"><span data-kn="ಸ್ಥಳ ಮಾಹಿತಿ">Location details</span><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a></div>
           </article>
         </div>
       </div>
-      <div class="calendar-action"><a class="button button-blue" href="celebration.ics" download><svg class="icon" aria-hidden="true"><use href="#calendar"/></svg><span data-kn="ದಿನಾಂಕಗಳನ್ನು ಕ್ಯಾಲೆಂಡರ್‌ನಲ್ಲಿ ಉಳಿಸಿ">Save the dates</span></a><p data-kn="ಎಲ್ಲ ಸಮಯಗಳು ಭಾರತೀಯ ಕಾಲಮಾನದಲ್ಲಿ (IST)">All times in Indian Standard Time (IST)</p></div>
+      <div class="calendar-action"><a class="button button-primary calendar-trigger" href="celebration.ics" data-open="calendar-dialog"><svg class="icon" aria-hidden="true"><use href="#calendar"/></svg><span data-kn="ದಿನಾಂಕಗಳನ್ನು ಕ್ಯಾಲೆಂಡರ್‌ನಲ್ಲಿ ಉಳಿಸಿ">Save the dates</span></a><p data-kn="ಗೂಗಲ್ · ಆಪಲ್ · ಔಟ್‌ಲುಕ್ · ಇತರೆ ಕ್ಯಾಲೆಂಡರ್‌ಗಳು">Google · Apple · Outlook · other calendars</p><p class="time-note" data-kn="ಎಲ್ಲ ಸಮಯಗಳು ಭಾರತೀಯ ಕಾಲಮಾನದಲ್ಲಿ (IST)">All times in Indian Standard Time (IST)</p></div>
     </section>
 
     <section class="venues-section" id="venues" aria-labelledby="venues-heading">
@@ -179,34 +189,82 @@
           </article>
           <article class="venue" id="reception-venue">
             <div class="venue-date"><svg class="icon" aria-hidden="true"><use href="#pin"/></svg><span data-kn="14 ಡಿಸೆಂಬರ್ · ಆರತಕ್ಷತೆ">14 December · The reception</span></div>
-            <h3 data-kn="ಬಂಗ್ಲೆಕೊಪ್ಪ">Banglakoppa</h3>
+            <h3 data-kn="ಬಂಗ್ಲೆಕೊಪ್ಪ">Banglekoppa</h3>
             <p data-kn="ಮಾವಿನಗುಂಡಿ, ಸಿದ್ದಾಪುರ ತಾ॥,&#10;ಕರ್ನಾಟಕ">Mavinagundi, Siddapur Taluk,<br>Karnataka</p>
-            <a class="button button-light-outline" href="https://www.google.com/maps/search/?api=1&query=Banglakoppa+Mavinagundi+Siddapur+Karnataka" target="_blank" rel="noopener noreferrer"><span data-kn="ಮ್ಯಾಪ್ಸ್‌ನಲ್ಲಿ ಪ್ರದೇಶ ಹುಡುಕಿ">Find area on Maps</span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a>
+            <a class="button button-light-outline" href="https://www.google.com/maps/dir/?api=1&amp;destination=14.236759,74.809287&amp;travelmode=driving" target="_blank" rel="noopener noreferrer"><span data-kn="ಮನೆಗೆ ದಾರಿ ಪಡೆಯಿರಿ">Directions to our home</span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a><button class="text-link light-link" type="button" data-open="travel-dialog"><span data-kn="ಮನೆಯ ನಿಖರ ಸ್ಥಳ ನೋಡಿ">See the exact home pin</span><svg class="icon" aria-hidden="true"><use href="#pin"/></svg></button>
           </article>
         </div>
-        <p class="map-note" data-kn="ಮ್ಯಾಪ್ಸ್ ಕೊಂಡಿಗಳು ಸ್ಥಳ ಹುಡುಕಾಟವನ್ನು ತೆರೆಯುತ್ತವೆ. ಪ್ರಯಾಣಕ್ಕೂ ಮುನ್ನ ನಿಖರ ಸ್ಥಳವನ್ನು ಕುಟುಂಬದವರೊಂದಿಗೆ ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ.">Map links open a location search. Please confirm the exact arrival point with the family before travelling.</p>
+        <p class="map-note" data-kn="ಬಂಗ್ಲೆಕೊಪ್ಪದ ಮನೆಯ ನಿಖರ ಸ್ಥಳವನ್ನು ಕುಟುಂಬದವರು ಹಂಚಿಕೊಂಡಿದ್ದಾರೆ. ವಿವಾಹದ ಸಭಾಭವನದ ಪ್ರವೇಶವನ್ನು ಪ್ರಯಾಣಕ್ಕೂ ಮುನ್ನ ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ.">The Banglekoppa home pin is shared by the family. The wedding hall link opens a venue search; confirm the hall entrance before travelling.</p>
       </div>
     </section>
 
     <section class="original-invitation section-wrap" id="invitation" aria-labelledby="invitation-heading">
-      <a class="invitation-preview" href="Invitation.pdf" target="_blank" rel="noopener" aria-label="View the original three-page Kannada invitation PDF">
+      <a class="invitation-preview" data-open="invitation-dialog" href="Invitation.pdf" target="_blank" rel="noopener" aria-label="View the original three-page Kannada invitation PDF">
         <div class="invitation-page page-back" aria-hidden="true"></div>
         <img class="invitation-page" src="assets/invitation-preview.webp" width="420" height="594" alt="The original Kannada invitation, printed in blue and rose on silver paper" loading="lazy">
         <span class="preview-caption"><span data-kn="ಮೂಲ ಆಹ್ವಾನ ಪತ್ರಿಕೆ">The original invitation</span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></span>
       </a>
-      <div class="invitation-copy"><h2 id="invitation-heading" data-kn="ಸಂಪ್ರದಾಯದ ಸೊಗಡು.&#10;ಪ್ರೀತಿಯ ಆಹ್ವಾನ.">Rooted in tradition.<br>Written with love.</h2><p data-kn="ನಮ್ಮ ಮಾತೃಭಾಷೆ ಕನ್ನಡದಲ್ಲಿ, ಕುಟುಂಬದ ಪ್ರೀತಿಯನ್ನು ಹೊತ್ತು ತಂದಿರುವ ಆತ್ಮೀಯ ಆಹ್ವಾನ. ಮೂಲ ಪತ್ರಿಕೆಯಲ್ಲಿ ಸಂಪೂರ್ಣ ವಿವರಗಳನ್ನು ನೋಡಿ.">Our invitation carries the warmth of our families, in our mother tongue, Kannada. Read the original for the complete invitation and family details.</p><a class="button button-blue" href="Invitation.pdf" target="_blank" rel="noopener"><span data-kn="ಆಹ್ವಾನ ಪತ್ರಿಕೆ ನೋಡಿ">Read the invitation</span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a><a class="text-link pdf-download" href="Invitation.pdf" download="Sandesh-and-Chandana-Invitation.pdf"><svg class="icon" aria-hidden="true"><use href="#download"/></svg><span data-kn="PDF ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ">Download PDF</span><span class="file-size">1 MB</span></a></div>
+      <div class="invitation-copy"><h2 id="invitation-heading" data-kn="ಸಂಪ್ರದಾಯದ ಸೊಗಡು.&#10;ಪ್ರೀತಿಯ ಆಹ್ವಾನ.">An invitation to<br>something beautiful.</h2><p data-kn="ನಮ್ಮ ಮಾತೃಭಾಷೆ ಕನ್ನಡದಲ್ಲಿ, ಕುಟುಂಬದ ಪ್ರೀತಿಯನ್ನು ಹೊತ್ತು ತಂದಿರುವ ಆತ್ಮೀಯ ಆಹ್ವಾನ. ಮೂಲ ಪತ್ರಿಕೆಯಲ್ಲಿ ಸಂಪೂರ್ಣ ವಿವರಗಳನ್ನು ನೋಡಿ.">Our invitation carries the warmth of our families, in our mother tongue, Kannada. Read the original for the complete invitation and family details.</p><a class="button button-primary" href="Invitation.pdf" target="_blank" rel="noopener" data-open="invitation-dialog"><span data-kn="ಆಹ್ವಾನ ಪತ್ರಿಕೆ ನೋಡಿ">Read the invitation</span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a><a class="text-link pdf-download" href="Invitation.pdf" download="Sandesh-and-Chandana-Invitation.pdf"><svg class="icon" aria-hidden="true"><use href="#download"/></svg><span data-kn="PDF ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ">Download PDF</span><span class="file-size">1 MB</span></a></div>
     </section>
 
     <section class="closing" aria-labelledby="closing-heading">
-      <div class="closing-arch" aria-hidden="true"></div>
+      <img class="closing-ganapathi" src="assets/ganapathi.webp" width="650" height="650" alt="" loading="lazy" aria-hidden="true">
       <p class="closing-kannada" lang="kn">ತಮ್ಮ ಆಗಮನಾಭಿಲಾಷಿಗಳು</p>
       <h2 id="closing-heading" data-kn="ನಮ್ಮ ಮದುವೆಗೆ ಬನ್ನಿ.&#10;ಸಿಹಿ ನೆನಪುಗಳನ್ನು ಕೊಂಡೊಯ್ಯಿರಿ.">Come for the wedding.<br>Stay for the memories.</h2>
       <p data-kn="ನಿಮ್ಮ ಪ್ರೀತಿ ಮತ್ತು ಆಶೀರ್ವಾದದ ನಿರೀಕ್ಷೆಯಲ್ಲಿ,">With love, and a little can't-wait-to-see-you,</p>
       <p class="closing-signature" data-kn="ಸಂದೇಶ ಮತ್ತು ಚಂದನಾ">Sandesh & Chandana</p>
+      <div class="closing-actions"><button class="button button-primary" type="button" data-open="blessing-dialog"><svg class="icon" aria-hidden="true"><use href="#flower"/></svg><span data-kn="ಶುಭ ಹಾರೈಸಿ">Send a shower of blessings</span></button>
       <button class="button button-outline share-button" type="button"><svg class="icon" aria-hidden="true"><use href="#share"/></svg><span data-kn="ಆಹ್ವಾನ ಹಂಚಿಕೊಳ್ಳಿ">Share the invitation</span></button>
-      <p class="share-status" role="status" aria-live="polite"></p>
+      </div><p class="share-status" role="status" aria-live="polite"></p>
     </section>
   </main>
   <footer class="site-footer"><a class="wordmark" href="#home" aria-label="Back to top">S<span>&</span>C<span class="wordmark-dot">.</span></a><p data-kn="ಪ್ರೀತಿಯಿಂದ, ಹೆಗಡೆ ಮತ್ತು ಭಟ್ ಕುಟುಂಬದವರು">With love, the Hegde & Bhat families</p><span>13.12.2026</span></footer>
+<dialog id="calendar-dialog" class="dialog calendar-dialog" aria-labelledby="calendar-title">
+    <button class="dialog-close" type="button" data-close aria-label="Close calendar options"><svg class="icon" aria-hidden="true"><use href="#close"/></svg></button>
+    <div class="dialog-scroll">
+    <h2 id="calendar-title" data-kn="ಈ ದಿನಾಂಕಗಳನ್ನು ಉಳಿಸಿ.">Make a little room for us.</h2>
+    <p class="dialog-intro" data-kn="ಸಮಾರಂಭ ಆಯ್ಕೆಮಾಡಿ, ನಿಮ್ಮ ಕ್ಯಾಲೆಂಡರ್‌ಗೆ ಸೇರಿಸಿ.">Choose a celebration, then your calendar.</p>
+    <div class="event-choices" role="group" aria-label="Event to save">
+      <button type="button" data-event="wedding" aria-pressed="true"><span data-kn="ಶುಭವಿವಾಹ">The wedding</span><small>13 Dec · 9:13 AM IST</small></button>
+      <button type="button" data-event="reception" aria-pressed="false"><span data-kn="ಆರತಕ್ಷತೆ">The reception</span><small>14 Dec · 1:00 PM IST</small></button>
+    </div>
+    <div class="calendar-providers">
+      <a id="google-calendar" href="https://calendar.google.com/" target="_blank" rel="noopener noreferrer"><span>Google Calendar</span><small data-kn="ಆಂಡ್ರಾಯ್ಡ್, ಐಫೋನ್ ಅಥವಾ ವೆಬ್">Android, iPhone or web</small><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a>
+      <a id="apple-calendar" href="calendars/wedding.ics"><span>Apple Calendar</span><small>iPhone · iPad · Mac</small><svg class="icon" aria-hidden="true"><use href="#download"/></svg></a>
+      <a id="outlook-calendar" href="calendars/wedding.ics" download><span>Outlook & other calendars</span><small>Windows · .ics import</small><svg class="icon" aria-hidden="true"><use href="#download"/></svg></a>
+    </div>
+    <p class="calendar-note" data-kn="ಕ್ಯಾಲೆಂಡರ್‌ನಲ್ಲಿ 1 ಗಂಟೆಯ ಅವಧಿ ನೀಡಲಾಗಿದೆ; ಸಮಾರಂಭದ ಮುಕ್ತಾಯದ ಸಮಯ ನಿಗದಿಯಾಗಿಲ್ಲ. ಉಳಿಸುವಾಗ ಅವಧಿಯನ್ನು ಬದಲಿಸಬಹುದು.">Calendar entries use a 1-hour reminder block. Event finish times are unannounced; adjust the duration when saving.</p>
+    <details class="import-help"><summary data-kn="ಕ್ಯಾಲೆಂಡರ್‌ಗೆ ಸೇರಿಸಲು ಸಹಾಯ">Need help adding a calendar file?</summary><p data-kn="ಆಪಲ್: ಡೌನ್‌ಲೋಡ್ ಆದ .ics ಫೈಲ್ ತೆರೆಯಿರಿ. ಔಟ್‌ಲುಕ್: Add calendar → Upload from file. ಗೂಗಲ್‌ನಲ್ಲಿ: ಮೇಲಿನ ನೇರ ಕೊಂಡಿ ಬಳಸಿ ಅಥವಾ ಕಂಪ್ಯೂಟರ್‌ನಲ್ಲಿ Settings → Import & export ಆಯ್ಕೆಮಾಡಿ.">Apple: open the downloaded .ics file in Calendar. Outlook web: Add calendar → Upload from file. Google: use the direct link above, or import the file from Settings → Import & export on a computer.</p></details>
+    <a class="text-link all-dates" href="celebration.ics" download><svg class="icon" aria-hidden="true"><use href="#calendar"/></svg><span data-kn="ಎರಡೂ ದಿನಗಳ ಕ್ಯಾಲೆಂಡರ್ ಫೈಲ್">Download both days as one calendar file</span></a>
+      </div>
+  </dialog>
+  <dialog id="invitation-dialog" class="dialog invitation-dialog" aria-labelledby="invitation-viewer-title">
+    <div class="viewer-header"><h2 id="invitation-viewer-title" data-kn="ಕುಟುಂಬದ ಪ್ರೀತಿಯ ಆಹ್ವಾನ">Our family's invitation</h2><button class="dialog-close" type="button" data-close aria-label="Close invitation viewer"><svg class="icon" aria-hidden="true"><use href="#close"/></svg></button></div>
+    <div class="invitation-viewer"><img id="viewer-page" src="assets/invitation-page-1.webp" width="1100" height="1556" alt="Kannada invitation, page 1 of 3"></div>
+    <div class="viewer-controls"><button type="button" id="previous-page" aria-label="Previous invitation page"><svg class="icon icon-back" aria-hidden="true"><use href="#arrow"/></svg></button><span id="page-indicator" role="status">1 / 3</span><button type="button" id="next-page" aria-label="Next invitation page"><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></button><button id="zoom-page" type="button" aria-pressed="false" data-kn="ಹಿಗ್ಗಿಸಿ">Zoom in</button><a href="Invitation.pdf" target="_blank" rel="noopener">PDF <svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a></div>
+  </dialog>
+  <dialog id="blessing-dialog" class="dialog blessing-dialog" aria-labelledby="blessing-title">
+    <button class="dialog-close" type="button" data-close aria-label="Close blessing"><svg class="icon" aria-hidden="true"><use href="#close"/></svg></button>
+    <div class="dialog-scroll">
+    <img src="assets/ganapathi.webp" width="650" height="650" alt="Lord Ganapathi">
+    <h2 id="blessing-title" data-kn="ಮಂಗಳಮಯವಾಗಲಿ.">May every beginning be blessed.</h2>
+    <p class="ganesha-prayer" lang="kn">ವಕ್ರತುಂಡ ಮಹಾಕಾಯ ಸೂರ್ಯಕೋಟಿ ಸಮಪ್ರಭ ।<br>ನಿರ್ವಿಘ್ನಂ ಕುರು ಮೇ ದೇವ ಸರ್ವಕಾರ್ಯೇಷು ಸರ್ವದಾ ॥</p>
+    <p data-kn="ನಿಮ್ಮ ಪ್ರೀತಿ ಮತ್ತು ಆಶೀರ್ವಾದವೇ ನಮಗೆ ಅಮೂಲ್ಯ ಉಡುಗೊರೆ.">Your love and blessings are our most precious gifts.</p>
+    <button class="button button-primary" id="shower-blessings" type="button"><svg class="icon" aria-hidden="true"><use href="#flower"/></svg><span data-kn="ಹೂವಿನ ಮಳೆ ಸುರಿಸಿ">Shower flower petals</span></button>
+    <p id="blessing-status" role="status" aria-live="polite"></p>
+      </div>
+  </dialog>
+  <dialog id="travel-dialog" class="dialog travel-dialog" aria-labelledby="travel-title">
+    <button class="dialog-close" type="button" data-close aria-label="Close home directions"><svg class="icon" aria-hidden="true"><use href="#close"/></svg></button>
+    <div class="dialog-scroll">
+    <h2 id="travel-title" data-kn="ಬಂಗ್ಲೆಕೊಪ್ಪಕ್ಕೆ ಸ್ವಾಗತ.">Find your way to Banglekoppa.</h2>
+    <p data-kn="ಹೆಗಡೆ ಕುಟುಂಬದ ಮನೆ · ಮಾವಿನಗುಂಡಿ, ಸಿದ್ದಾಪುರ ತಾ॥">Hegde family home · Mavinagundi, Siddapur Taluk</p>
+    <div id="home-map" class="home-map"><p data-kn="ಕುಟುಂಬದವರು ಹಂಚಿಕೊಂಡ ನಿಖರ ಸ್ಥಳ">Exact location shared by the family</p></div>
+    <div class="travel-actions"><a class="button button-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=14.236759,74.809287&amp;travelmode=driving" target="_blank" rel="noopener noreferrer"><span data-kn="ಗೂಗಲ್ ಮ್ಯಾಪ್ಸ್‌ನಲ್ಲಿ ದಾರಿ ಪಡೆಯಿರಿ">Get directions</span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a><button class="button button-outline" id="copy-pin" type="button" data-kn="ಸ್ಥಳದ ಕೊಂಡಿ ನಕಲಿಸಿ">Copy map link</button></div>
+    <p class="pin-coordinates">14.236759, 74.809287</p><p id="pin-status" role="status" aria-live="polite"></p>
+      </div>
+  </dialog>
+  <div class="petal-shower" aria-hidden="true"></div>
+  <a class="floating-home-pin" href="https://maps.app.goo.gl/sDHHJNV3LDDcjhfZ9" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#pin"/></svg><span data-kn="ಮನೆಗೆ ದಾರಿ">Home directions</span></a>
 </body>
 </html>

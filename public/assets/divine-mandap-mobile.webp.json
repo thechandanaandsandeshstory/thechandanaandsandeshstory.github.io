@@ -1,0 +1,9 @@
+{
+  "prompt": "Use case: stylized-concept\nAsset type: mobile website background, portrait 2:3 aspect ratio\nInput images: Image 1 is a materials, color, and sacred atmosphere reference only.\nPrimary request: Tall portrait luxurious divine Karnataka wedding mandap, deep burgundy empty central 65–70% for text, intricate antique gold arch framing the whole portrait, hanging brass oil lamps in the upper outer corners, jasmine and marigold borders, rich crimson silk sides, very dark quiet central text space, lower gold lamps, candlelit premium sacred atmosphere. Maintain the reference materials and color but fully recompose the architecture for a phone, do not crop the landscape reference. No idol, no people, no letters, no watermark, no blue.",
+  "source": "C:/Users/saaki/.codex/generated_images/01a197e6-85ec-7d03-b658-ff8ab4758ef6/exec-93caf852-477f-4140-8edc-86f293231e3d.png",
+  "reference": "C:/Users/saaki/.codex/generated_images/01a18db1-41a0-7b13-a355-620c4ba07cb8/exec-1df77cfa-06c2-4add-83d2-09347e623d2b.png",
+  "generator": "built-in image_gen",
+  "transparent_background": false,
+  "width": 1024,
+  "height": 1536
+}

@@ -41,6 +41,7 @@ function setLanguage(nextLanguage) {
   updateMotionButton();
   updateCountdown();
   renderShareStatus();
+  if (window.updateAppLabels) window.updateAppLabels();
 }
 languageButtons.forEach(function (button) {
   button.addEventListener('click', function () { setLanguage(button.dataset.language); });
@@ -49,6 +50,7 @@ function setMotion(paused) {
   motionPaused = paused;
   document.documentElement.classList.toggle('motion-paused', motionPaused);
   updateMotionButton();
+  if (window.syncAtmosphere) window.syncAtmosphere();
 }
 motionButton.addEventListener('click', function () {
   setMotion(!motionPaused);

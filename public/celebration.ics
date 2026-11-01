@@ -4,23 +4,49 @@ PRODID:-//Sandesh and Chandana//Wedding//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:Sandesh and Chandana Wedding
+X-WR-TIMEZONE:Asia/Kolkata
 BEGIN:VEVENT
 UID:wedding-20261213@sandesh-chandana.local
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261101T000000Z
+SEQUENCE:1
 DTSTART:20261213T034300Z
-SUMMARY:Sandesh and Chandana - Wedding
+DTEND:20261213T044300Z
+SUMMARY:Sandesh & Chandana - Wedding
 LOCATION:Sri Raghaveshwara Sabhabhavana\, Bachchalli Road\, Agrahara\, Saga
- ra
-DESCRIPTION:Wedding muhurta 9:13 AM IST. Wedding lunch from 12:30 PM IST. C
- onfirm exact venue with family.
+ ra\, Karnataka
+DESCRIPTION:Wedding muhurta: 9:13 AM IST\, 13 December 2026. Wedding lunch 
+ from 12:30 PM IST.\nA 1-hour calendar hold is provided for your reminder. 
+ The actual event finish time has not been announced\; adjust the calendar 
+ duration as needed.
+URL:https://www.google.com/maps/search/?api=1&query=Sri+Raghaveshwara+Sabha
+ bhavana+Agrahara+Sagara+Karnataka
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Sandesh & Chandana - Wedding is tomorrow
+END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:reception-20261214@sandesh-chandana.local
-DTSTAMP:20261030T000000Z
+DTSTAMP:20261101T000000Z
+SEQUENCE:1
 DTSTART:20261214T073000Z
-SUMMARY:Sandesh and Chandana - Reception and Lunch
-LOCATION:Banglakoppa\, Mavinagundi\, Siddapur Taluk\, Karnataka
-DESCRIPTION:Reception and lunch at 1:00 PM IST. Confirm exact arrival point
-  with family.
+DTEND:20261214T083000Z
+SUMMARY:Sandesh & Chandana - Reception and Lunch
+LOCATION:Banglekoppa\, Mavinagundi\, Siddapur Taluk\, Karnataka
+DESCRIPTION:Reception and lunch: 1:00 PM IST\, 14 December 2026. Home pin: 
+ 14.236759\, 74.809287.\nA 1-hour calendar hold is provided for your remind
+ er. The actual event finish time has not been announced\; adjust the calen
+ dar duration as needed.
+URL:https://maps.app.goo.gl/sDHHJNV3LDDcjhfZ9
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Sandesh & Chandana - Reception and Lunch is tomorrow
+END:VALARM
 END:VEVENT
 END:VCALENDAR
