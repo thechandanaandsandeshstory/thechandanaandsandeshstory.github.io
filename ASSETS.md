@@ -1,5 +1,9 @@
 # Artwork provenance
 
+## Continuous royal brocade — 2 November 2026
+
+`public/assets/royal-brocade.webp` is a new 768 × 768 woven wine silk material with antique-gold lotus and floral motifs. It replaces the broad plain cream page backgrounds following the user's feedback. Size: 159,168 bytes, WebP quality 82. A static wine scrim keeps text readable. The page reuses one tile without fixed-background or continuous animation effects. Exact prompt and original retained PNG path are in the adjacent `.webp.json` file.
+
 ## Royal scroll and ceremonial silk — 2 November 2026
 
 - `public/assets/royal-scroll.webp`: new transparent 800 × 1200 parchment artwork with curled paper rolls, engraved brass finials and a silk tassel. Date text and Shubha Vivaha lettering are live HTML. Shipping size: 131,922 bytes.
