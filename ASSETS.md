@@ -1,5 +1,12 @@
 # Artwork provenance
 
+## Royal scroll and ceremonial silk — 2 November 2026
+
+- `public/assets/royal-scroll.webp`: new transparent 800 × 1200 parchment artwork with curled paper rolls, engraved brass finials and a silk tassel. Date text and Shubha Vivaha lettering are live HTML. Shipping size: 131,922 bytes.
+- `public/assets/ceremonial-silk.webp`: new 1440 × 960 vermilion brocade, jasmine/marigold toran and brass-lamp artwork for the schedule banner and day headings. Shipping size: 211,618 bytes; the repeated use shares one cached resource.
+
+Both were created with the built-in image generation tool, resized and encoded as WebP at quality 82. Original PNGs remain under the Codex generated-images folder. Exact prompts and source paths are recorded in adjacent `.webp.json` files. They depict decorative materials, not the actual venue. Both load lazily and add no continuous animation.
+
 ## Divine wedding redesign — 1 November 2026
 All newly generated art uses the built-in image generation tool. These scenes are atmospheric artwork, not photographs of the actual venue. Optimized WebP assets preserve their original composition and Ganapathi transparency.
 

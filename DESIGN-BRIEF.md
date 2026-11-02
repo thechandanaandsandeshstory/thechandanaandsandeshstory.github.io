@@ -1,5 +1,9 @@
 # Divine celebration — 1 November 2026
 
+## Royal refinement — 2 November 2026
+
+The user supplied a parchment reference and rejected the stone-like arched date plaque. Replace it with an old royal scroll: pale handmade paper, curled rolls, engraved gold finials, and a prominent Kannada Shubha Vivaha ribbon. Enrich the events with a vermilion silk banner, jasmine/marigold toran and brass lamps. Present 13 and 14 December as two ceremonial day panels, side by side on desktop and stacked on tablet/phone. Preserve the current cover, palette, fonts, confirmed facts and interactions. New artwork must be compressed, lazy-loaded and free of continuous animation.
+
 The user explicitly rejected the earlier blue minimal invitation and requested a divine, iconic redesign with Ganapathi first, rich background images, motion and meaningful popup interactions. This replaces the earlier design authority.
 
 ## Direction contract

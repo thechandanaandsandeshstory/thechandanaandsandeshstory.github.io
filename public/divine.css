@@ -50,19 +50,43 @@ button[data-open]{display:none}
 .sound-control{display:none}
 .js .sound-control{display:flex}
 .hero-foot .icon{width:17px;height:17px;flex-basis:17px}
-.invitation-date{min-height:390px;max-width:320px;isolation:isolate;background:#f4e5c9;box-shadow:0 16px 40px #492b2410;border-color:#ac7c3b;border-radius:140px 140px 8px 8px;position:relative;padding:48px 35px 40px}
-.invitation-date::before{content:"";position:absolute;inset:8px;border:1px solid #ac7c3b66;border-radius:inherit;z-index:-1}
-.date-kannada{font-family:var(--kannada);color:var(--vermilion);margin-bottom:24px}
-.date-ornament{stroke:#9c6d2c}
+.invitation-date{position:relative;display:block;justify-self:center;width:360px;max-width:100%;min-height:0;aspect-ratio:2/3;padding:0;border:0;border-radius:0;background:none;box-shadow:none;color:var(--wine)}
+.scroll-art{width:100%;height:100%;object-fit:contain}
+.scroll-content{position:absolute;inset:15% 21% 19%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.date-kannada{flex:none;display:block;width:calc(100% + 46px);padding:7px 8px 3px;margin:0 0 17px;background:var(--wine);border-block:1px solid var(--gold);color:var(--gold-light);font:400 23px/1.8 var(--kannada);white-space:nowrap}
+.scroll-month{font-size:14px}
+.invitation-date strong{font-size:108px;line-height:.94;margin:5px 0 9px;color:var(--wine)}
+.invitation-date .date-year{font-size:23px;line-height:1.3;letter-spacing:.12em;margin-left:.12em}
+.date-ornament{width:112px;height:23px;stroke:#9c6d2c;margin-block:15px 12px;flex:none}
+.scroll-day{font-size:12px;line-height:1.8;color:var(--vermilion)}
+.scroll-place{font-size:12px;line-height:1.8;white-space:nowrap}
 .welcome-kannada{color:var(--vermilion)}
 .couple-join{color:#a27e44}
 .countdown-section{background:var(--wine);color:var(--gold-light);position:relative;isolation:isolate;overflow:clip;border-color:#dfb96e40}
 .countdown-section::before{content:"";position:absolute;inset:0;z-index:-1;background:url("assets/divine-mandap.webp") center 68%/cover;opacity:.12}
 .countdown-separator{color:var(--gold)}
-.section-heading h2{color:var(--wine)}
-.day-number,.event time{color:var(--vermilion)}
-.event-copy h4{font-size:31px}
-.event-copy p{font-size:14px}
+.celebration{padding-block:100px}
+.celebration .section-heading{position:relative;isolation:isolate;overflow:hidden;min-height:360px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:105px 100px 68px;margin-bottom:36px;background:var(--wine-deep);text-align:center}
+.ceremonial-art{position:absolute;inset:0;z-index:-1;width:100%;height:100%;object-fit:cover;object-position:center top}
+.celebration .section-heading h2{max-width:760px;color:var(--gold-light);font-size:clamp(42px,4.3vw,60px)}
+.celebration .section-heading p{max-width:520px;color:var(--paper);font-size:14px;line-height:1.8;margin-top:20px}
+.celebration-days{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.day{display:block;min-width:0;border:1px solid var(--rule);background:linear-gradient(110deg,#edddbf80,transparent 45%,#edddbf50),var(--paper)}
+.day+.day{margin-top:0}
+.day-heading{position:relative;isolation:isolate;overflow:hidden;align-items:center;gap:24px;padding:26px 32px;background:var(--wine);color:var(--gold-light);border-bottom:3px double var(--gold)}
+.day-silk{position:absolute;inset:0;z-index:-1;width:100%;height:100%;object-fit:cover;object-position:center 58%;opacity:.5}
+.day-number{display:flex;align-items:center;justify-content:center;flex:none;width:76px;height:76px;border:1px solid #dfb96e80;border-radius:50%;font-size:64px;line-height:1;color:var(--gold-light)}
+.day-heading h3{margin:0;font-size:15px;font-weight:500}
+.day-heading p{margin-top:5px;color:var(--gold-light);font-size:12px}
+.events{padding:4px 30px 12px}
+.event{grid-template-columns:82px minmax(0,1fr);gap:18px;padding:28px 0}
+.event+.event{border-top:1px solid var(--rule)}
+.event time{color:var(--vermilion);font-size:25px;line-height:1.5;padding-top:3px}
+.event time span{font-size:11px}
+.event-copy h4{font-size:30px;color:var(--wine);line-height:1.2;margin-bottom:10px}
+.event-copy p{font-size:13px;line-height:1.85}
+.featured-event .event-copy h4{font-size:34px}
+.celebration .calendar-action{margin-top:40px}
 .text-link{color:var(--vermilion);padding:0;border:0;background:none}
 .text-link>span:first-child{text-decoration-color:#9c302c66}
 .calendar-action>p.time-note{margin-top:3px}
@@ -163,10 +187,22 @@ html[lang=kn] .hero h1{gap:22px;line-height:1.6}
 html[lang=kn] .hero .ampersand{font-size:45px;line-height:1;padding:0}
 html[lang=kn] .dialog h2{font-size:29px;line-height:1.7}
 html[lang=kn] .event-choices span{font-family:var(--kannada);font-size:18px;line-height:1.8}
+html[lang=kn] .celebration .section-heading h2{font-size:clamp(29px,3vw,41px);line-height:1.7}
+html[lang=kn] .event-copy h4{font-size:22px;line-height:1.8}
+html[lang=kn] .scroll-month{font-family:var(--kannada);font-size:13px;line-height:1.8}
+html[lang=kn] .scroll-day,html[lang=kn] .scroll-place{font-family:var(--kannada);font-size:11px;line-height:2}
 @media(min-width:1700px){.hero-art{background-size:100% 100%}}
 @media(max-width:1000px){
   .hero h1{font-size:80px;gap:16px}.hero .ampersand{font-size:48px}
   html[lang=kn] .hero h1{font-size:52px;gap:15px}
+  .celebration-days{gap:24px}.day-heading{padding:24px;gap:18px}
+  .events{padding-inline:22px}.event{grid-template-columns:72px minmax(0,1fr);gap:14px}
+  .event-copy h4{font-size:28px}.featured-event .event-copy h4{font-size:30px}
+}
+@media(min-width:701px) and (max-width:900px){
+  .welcome{grid-template-columns:1fr;gap:48px;max-width:720px;padding-block:90px}
+  .celebration-days{grid-template-columns:1fr}
+  .events{padding-inline:32px}.event{grid-template-columns:90px minmax(0,1fr);gap:26px}
 }
 @media(max-width:700px){
   :root{scroll-padding-top:94px}
@@ -185,10 +221,24 @@ html[lang=kn] .event-choices span{font-family:var(--kannada);font-size:18px;line
   .sound-control,.motion-control{font-size:12px;gap:5px;padding:8px 4px}
   .hero-foot .icon{width:15px;height:15px;flex-basis:15px}
   .button{font-size:12px}
-  .invitation-date{width:210px;min-height:285px;padding:32px 25px 26px;border-radius:100px 100px 6px 6px}
-  .date-kannada{margin-bottom:15px}.invitation-date strong{font-size:90px}.invitation-date>span{font-size:12px}
+  .invitation-date{width:310px;min-height:0;padding:0;border-radius:0}
+  .date-kannada{font-size:20px;margin-bottom:13px;width:calc(100% + 38px)}
+  .invitation-date strong{font-size:91px}.invitation-date .date-year{font-size:21px}
+  .scroll-month{font-size:13px}.date-ornament{margin-block:12px 8px}
+  .scroll-day,.scroll-place{font-size:11px}
   .countdown-layout h2{font-size:32px}.countdown strong{font-size:43px}
-  .event-copy h4{font-size:29px}.event-copy p{font-size:13px}
+  .celebration{padding-block:72px}
+  .celebration .section-heading{min-height:310px;padding:82px 32px 44px;margin-bottom:24px}
+  .ceremonial-art{object-position:center top}
+  .celebration .section-heading h2{font-size:39px;line-height:1.12}
+  .celebration .section-heading p{font-size:12px;margin-top:18px;max-width:28ch}
+  .celebration-days{grid-template-columns:1fr;gap:24px}
+  .day-heading{padding:22px 24px;gap:22px}.day-number{width:68px;height:68px;font-size:57px}
+  .day-heading h3{font-size:14px}.day-heading p{font-size:12px}
+  .events{padding:0 22px 6px}
+  .event{grid-template-columns:70px minmax(0,1fr);gap:15px;padding-block:25px}
+  .event time{font-size:24px}.event-copy h4{font-size:28px}.featured-event .event-copy h4{font-size:31px}.event-copy p{font-size:13px}
+  .celebration .calendar-action{margin-top:28px}
   .calendar-action .button{width:100%}
   .closing{padding:62px 24px 46px}
   .closing-actions{flex-direction:column;align-items:center;gap:12px}.closing-actions .button{width:100%;max-width:350px}
@@ -212,11 +262,21 @@ html[lang=kn] .event-choices span{font-family:var(--kannada);font-size:18px;line
   html[lang=kn] .hero-message{margin-top:16px}
   html[lang=kn] .dialog h2{font-size:25px}
   html[lang=kn] .event-choices span{font-size:16px}
+  html[lang=kn] .event-copy h4{font-size:20px}
+  html[lang=kn] .celebration .section-heading h2{font-size:29px}
 }
 @media(max-width:370px){
   .site-header{padding-inline:16px}.hero{padding-inline:22px}.hero h1{font-size:59px}
   .hero-foot{left:12px;right:12px}.sound-control,.motion-control{font-size:11px}
   .viewer-controls{gap:7px}.viewer-controls #zoom-page{padding-inline:7px}
+  .invitation-date{width:284px}.date-kannada{font-size:18px;margin-bottom:10px}
+  .invitation-date strong{font-size:82px}.invitation-date .date-year{font-size:19px}
+  .scroll-content{inset-block:15% 18%}.date-ornament{width:100px;height:19px;margin-block:10px 7px}
+  .scroll-month,.scroll-day,.scroll-place{font-size:11px}
+  .celebration .section-heading{padding-inline:25px}.celebration .section-heading h2{font-size:35px}
+  .events{padding-inline:17px}.event{grid-template-columns:65px minmax(0,1fr);gap:12px}
+  .event time{font-size:22px}.event-copy h4{font-size:27px}.featured-event .event-copy h4{font-size:29px}
+  html[lang=kn] .event-copy h4{font-size:19px}
 }
 @media(prefers-reduced-motion:reduce){:root{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 @media print{
@@ -225,4 +285,8 @@ html[lang=kn] .event-choices span{font-family:var(--kannada);font-size:18px;line
   .hero-art,.hero-shade,.hero-halo{display:none}.hero h1,.hero-message,.hero-intro,.blessing,.hero .ampersand{color:var(--ink)}
   .hero h1{font-size:40px}.ganapathi{width:70px;height:70px}.hero .ampersand{font-size:25px}
   .site-footer{background:white;color:var(--ink);padding:20px}
+  .celebration-days{display:block}.day+.day{margin-top:24px}.day-heading{background:white;color:var(--ink)}
+  .day-number,.day-heading p{color:var(--ink)}.ceremonial-art,.day-silk{display:none}
+  .celebration .section-heading{min-height:0;padding:20px;background:white}
+  .celebration .section-heading h2,.celebration .section-heading p{color:var(--ink)}
 }

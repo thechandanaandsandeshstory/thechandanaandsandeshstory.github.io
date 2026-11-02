@@ -15,7 +15,7 @@ colors:
 typography:
   display: {fontFamily: "Cormorant Garamond, Georgia, serif", fontSize: "clamp(76px, 7vw, 96px)", fontWeight: 400, lineHeight: 1, letterSpacing: "-0.035em"}
   headline: {fontFamily: "Cormorant Garamond, Georgia, serif", fontSize: "clamp(38px, 4.25vw, 60px)", fontWeight: 500, lineHeight: 1.12, letterSpacing: "-0.025em"}
-  event-title: {fontFamily: "Cormorant Garamond, Georgia, serif", fontSize: "31px", fontWeight: 500, lineHeight: 1.3}
+  event-title: {fontFamily: "Cormorant Garamond, Georgia, serif", fontSize: "30px", fontWeight: 500, lineHeight: 1.2}
   body: {fontFamily: "Manrope, Arial, sans-serif", fontSize: "16px", fontWeight: 400, lineHeight: 1.8}
   label: {fontFamily: "Manrope, Arial, sans-serif", fontSize: "13px", fontWeight: 500, lineHeight: 1.6}
   kannada-body: {fontFamily: "Noto Serif Kannada, serif", fontSize: "16px", fontWeight: 400, lineHeight: 1.95}
@@ -50,7 +50,7 @@ components:
 
 A richly decorated mandap opens the wedding celebration with Lord Ganapathi, a Kannada invocation and the couple's names. Deep wine, vermilion, antique gold, flower garlands and sandalwood paper create the divine atmosphere explicitly requested on 1 November 2026. This replaces the earlier blue minimal direction.
 
-Scene-setting raster artwork carries the ornament; clear typography and open schedules carry the information. Ganapathi remains the first focal point. The final code-led implementation, with `style.css` followed by `divine.css`, is the visual authority; no approved external comp exists. `DESIGN-BRIEF.md` holds the surface contract and `PRODUCT.md` holds corrected names and event facts.
+Scene-setting raster artwork carries the ornament; clear typography carries the information. Ganapathi remains the first focal point. On 2 November 2026 the family requested an old royal scroll in place of the date plaque and richer divine treatment for the schedule. The scroll, silk banner and two ceremonial day panels extend the existing world. The final code-led implementation, with `style.css` followed by `divine.css`, is the visual authority; no approved external comp exists. `DESIGN-BRIEF.md` holds the surface contract and `PRODUCT.md` holds corrected names and event facts.
 
 **Key Characteristics:**
 - Ganapathi first, framed by a full-bleed illuminated mandap.
@@ -73,15 +73,15 @@ Paper is the reading and dialog surface; sand distinguishes closing and supporti
 
 ## Typography
 
-Cormorant Garamond supplies English names, headings and large date numerals; Manrope supplies reading and controls; Noto Serif Kannada supplies Kannada. All three remain self-hosted with Unicode-ranged WOFF2 files and font swapping. The frontmatter records default roles from the final cascade. Paragraphs reach (65ch), with explanatory copy using line height (1.95); event copy is (14px desktop / 13px phone).
+Cormorant Garamond supplies English names, headings and large date numerals; Manrope supplies reading and controls; Noto Serif Kannada supplies Kannada. All three remain self-hosted with Unicode-ranged WOFF2 files and font swapping. The frontmatter records default roles from the final cascade. Paragraphs reach (65ch), with explanatory copy using line height (1.95); event copy is (13px) with line height (1.85).
 
 **The Two-Script Rule.** Kannada uses its own family, zero display tracking and longer line heights. Preserve its language-specific metrics rather than shrinking it into English measurements.
 
-Kannada headings use `clamp(29px, 3vw, 41px)` with line height (1.7). Dialog headings are (42px English / 29px Kannada) on desktop and (35px / 25px) on phones. English event titles reduce to (29px) on phones; Kannada titles use (22px desktop / 20px phone). Buttons use the label role, reduce to (12px) on phones and switch to Kannada type with extra top padding (18px).
+Kannada headings use `clamp(29px, 3vw, 41px)` with line height (1.7). Dialog headings are (42px English / 29px Kannada) on desktop and (35px / 25px) on phones. English event titles use (30px), with wedding and reception titles at (34px); phones use (28px / 31px). Kannada titles use (22px desktop / 20px phone), reducing to (19px) below 370px. Buttons use the label role, reduce to (12px) on phones and switch to Kannada type with extra top padding (18px).
 
 ## Layout
 
-The shared container is `min(1180px, 88%)`. Desktop welcome, schedule, venue and original-invitation sections use open two-column editorial grids with generous gaps. Main sections retain roughly (100–132px) vertical spacing. The fixed header is (88px) high and gains a deep-wine surface after scrolling.
+The shared container is `min(1180px, 88%)`. The desktop welcome pairs the royal scroll with the family invitation. The schedule pairs two day panels under a silk-and-lamp banner; each panel keeps times and event details in an open list. Welcome and schedule stack at 900px. Venue and original-invitation sections retain open two-column editorial grids. Main sections retain roughly (100–132px) vertical spacing. The fixed header is (88px) high and gains a deep-wine surface after scrolling.
 
 The cover is (100svh), bounded by (920–1150px), with centered content up to (960px). A (154px) Ganapathi image precedes the invocation and horizontal English name lockup. `divine-mandap.webp` and `ganapathi.webp` are actual raster assets; the scene is generated art, not a photograph of the event venue.
 
@@ -93,7 +93,7 @@ Dialogs fit within the viewport: ordinary maximum width (620px), viewer maximum 
 
 ## Elevation & Depth
 
-Layered mandap imagery, a subtle halo and gold motes give the cover depth. The date plaque has an inset border and soft shadow; the invitation preview retains its paper lift; the fixed header and home shortcut receive restrained shadows. Dialogs use a larger shadow against a dark dimmed backdrop. Full-screen backdrop blur is avoided for smooth rendering.
+Layered mandap imagery, a subtle halo and gold motes give the cover depth. The date scroll's rolled parchment and brass finials carry their own photographed depth, with actual alpha transparency around its silhouette. The invitation preview retains its paper lift; the fixed header and home shortcut receive restrained shadows. Dialogs use a larger shadow against a dark dimmed backdrop. Full-screen backdrop blur is avoided for smooth rendering.
 
 **The Controlled Atmosphere Rule.** Twelve small CSS motes replace a continuous full-screen canvas. They pause offscreen, in hidden tabs and while dialogs are open; motion controls and reduced-motion preferences are respected. Entrance motion uses opacity and transforms, with no animated blur or brightness filters. Petal showers are capped at 18 on phones and 32 on larger screens. Sound starts only after an explicit sound-control action.
 
@@ -101,9 +101,15 @@ The entrance coordinates artwork (2.3s), Ganapathi (1.4s), names (1.8s) and date
 
 ## Shapes
 
-The dominant forms are the ornate mandap, softly arched date plaque and warm rectangular reading surfaces. Frontmatter defines control, choice, dialog and home-shortcut radii. The date plaque uses a tall rounded crown with small lower corners; the phone plaque is (210px) wide. Fine brass rules organize schedules without boxing every event. Icons remain inline, unfilled SVG line drawings, including the viewer's navigation arrows.
+The dominant forms are the ornate mandap, old royal parchment and warm rectangular reading surfaces. Frontmatter defines control, choice, dialog and home-shortcut radii. The date scroll is (360px) wide on desktop, (310px) on phones and (284px) below 370px, always at a 2:3 aspect ratio. Date text remains live HTML, with a vermilion-wine Kannada ribbon, a large date and readable month/year/day/location. Fine brass frames identify the two day panels; individual events remain unboxed. Icons remain inline, unfilled SVG line drawings, including the viewer's navigation arrows.
 
 ## Components
+
+### Royal scroll and ceremonial schedule
+
+`royal-scroll.webp` provides blank aged parchment with curled rolls, brass finials, floral engraving and a silk tassel. `ceremonial-silk.webp` provides the banner's jasmine/marigold toran, brass lamps and brocade, and is reused in the two day headings. Both are decorative images with empty alt text, explicit dimensions, async decoding and lazy loading. Their combined compressed size is about (336 KiB). They introduce no continuous animation or JavaScript work. All dates, names, translations and event details remain editable HTML.
+
+The 2 November visual pass checked English and Kannada at 320, 390, 768 and 1440px; the existing functional suite also covered 1024px and all dialogs. The mechanical detector's cream-palette advisory is intentional parchment from the supplied reference. Its new scroll-padding warning reads the retired base border; the rendered scroll has no CSS border and places text inside a 21% horizontal inset. Gold text sits on wine surfaces, not the paper background inferred by the static detector. The viewer image intentionally has no source until its dialog opens, preserving the existing deferred-loading behavior.
 
 ### Actions and navigation
 
